@@ -1,9 +1,11 @@
-import { View, Text } from "react-native";
-import { TextInput } from "react-native-web";
-import Login from './src/screens/login/screenlogin'
+import React from 'react';
+import { View, Text, SafeAreaView } from "react-native";
+import RegistrationScreen from './src/screens/Registration/RegistrationScreen';
 
 export default function App() {
   return (
-      <Login></Login>
+    <SafeAreaView style={{flex: 1}}>
+      <RegistrationScreen></RegistrationScreen>
+    </SafeAreaView>
   );
 }
