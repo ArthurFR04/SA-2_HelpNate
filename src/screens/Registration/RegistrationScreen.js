@@ -5,8 +5,9 @@ import style from './RegistrationStyle';
 function RegistrationScreen(){
     return(
         <View style={style.container}>
-            <View style={style.circle}>
+            <View style={style.containerCircle}>
                 <Text>oi</Text>
+                <View style={style.circle}><Text>oi</Text></View>
                 <TouchableOpacity></TouchableOpacity>
             </View>
         </View>
