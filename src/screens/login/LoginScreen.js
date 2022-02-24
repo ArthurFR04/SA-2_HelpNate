@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, TextInput, Text, Button} from "react-native";
-import style from './loginstyle'
+import style from './LoginStyle'
 
 import { Link } from '@react-navigation/native';
 
-export default function App() {
+export default function LoginScreen() {
   return (
     <View className="container" style={style.container}>
       <View className="conteudo" style={style.conteudo}>
