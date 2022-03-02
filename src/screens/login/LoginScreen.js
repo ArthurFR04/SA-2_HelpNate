@@ -1,15 +1,8 @@
 import React from 'react'
-import { View, TextInput, Text, Button} from "react-native";
-<<<<<<< HEAD
-import style from './Loginstyle'
-=======
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { View, TextInput, Text, Button, TouchableOpacity} from "react-native";
 import style from './loginstyle'
-
-import Ionicons from 'react-native-vector-icons/Ionicons';
-
->>>>>>> b21132c410e63e4011a7c337d229eb5ac4599435
 import { Link } from '@react-navigation/native';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function LoginScreen() {
   return (
@@ -22,26 +15,29 @@ export default function LoginScreen() {
           <Text style={style.textbtn}>Logar</Text>
         </TouchableOpacity>
       </View>
-<<<<<<< HEAD
-      <Link to={{ screen: 'Registration'}}>
-          Dale pro Registrozinho
-      </Link>
-=======
 
-      {/*<Link to={{ screen: 'Registration'}}>
-          Dale pro Registrozinho
-      </Link>*/}
- 
->>>>>>> b21132c410e63e4011a7c337d229eb5ac4599435
-      <View className="conteudo-2">
+      <View className="conteudo-2" style={style.conteudo2}>
+        
+        <View style={style.arrowG}>
+          <TouchableOpacity style={style.arrow}>
+            <Link to={{screen:'Registration'}}>
+              <FontAwesome name="long-arrow-up" size={60} color="#3c3c3c"/>
+            </Link>
+          </TouchableOpacity>
+        </View>
+        <View className="butonss" style={style.butons}>
+          <TouchableOpacity style={style.butons1}>
+            <FontAwesome name="long-arrow-up" size={60} color="#3c3c3c"/>
+          </TouchableOpacity>
 
-        <TouchableOpacity>
-          <Text>Arrow</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={style.butons2}>
+            <FontAwesome name="long-arrow-up" size={60} color="#3c3c3c"/>
+          </TouchableOpacity>
 
-        <Button title="Instagram"/>
-        <Button title="GitHub"/>
-        <Button title="Facebook"/>
+          <TouchableOpacity style={style.butons3}>
+            <FontAwesome name="long-arrow-up" size={60} color="#3c3c3c"/>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
