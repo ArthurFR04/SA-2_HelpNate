@@ -9,12 +9,12 @@ export default StyleSheet.create({
         backgroundColor: '#FFEF6D'
     },
     conteudo: {
-        flex:1,
-        alignItems:'center',
+        flex: 1,
+        alignItems: 'center',
         justifyContent: 'center',
     },
-    input:{
-        backgroundColor:'#f2bc1b',
+    input: {
+        backgroundColor: '#f2bc1b',
         width: 250,
         height: 55,
         padding: '2%',
@@ -23,22 +23,81 @@ export default StyleSheet.create({
         fontSize: 17,
         borderRadius: 10
     },
-    text:{
-        fontSize:40,
-        marginBottom:'30%',
+    text: {
+        fontSize: 40,
+        marginBottom: '30%',
         color: '#3c3c3c',
     },
-    btnLogar:{
+    btnLogar: {
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent:'center',
+        justifyContent: 'center',
         width: 150,
         height: 45,
         borderRadius: 10,
     },
-    textbtn:{
+    textbtn: {
         fontSize: 22,
         color: '#3c3c3c',
+    },
+
+    conteudo2: {
+        backgroundColor: 'white',
+        width: 500,
+        height: '35%',
+        borderRadius: 200,
+        transform: [
+            // Transform the origin down
+            { translateY: 200 / 2 },
+            // Transform the origin back up
+            { translateY: -100 / 2 },
+        ],
+    },
+
+    arrowG: {
+        justifyContent: 'center',
+        alignSelf: 'center',
+        backgroundColor: 'black',
+        height: 100,
+        width: '20%',
+        borderRadius: 50,
+        transform: [
+            // Transform the origin down
+            { translateY: 0 / 2 },
+            // Transform the origin back up
+            { translateY: -100 / 2 },
+        ],
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 4,
+    },
+
+    arrow: {
+        marginLeft: 10,
+        marginRight: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    butons:{
+        display:'flex',
+        alignItems:'flex-end',
+        justifyContent:'center',
+        flexDirection:'row',
+        marginTop:'7%'
+    },
+
+    butons1:{
+        marginRight: 70
+    },
+
+    butons2:{
+        marginRight: 70
     },
 
 });
