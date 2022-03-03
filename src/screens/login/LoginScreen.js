@@ -3,6 +3,7 @@ import { View, TextInput, Text, Button, TouchableOpacity} from "react-native";
 import style from './loginstyle'
 import { Link } from '@react-navigation/native';
 import { FontAwesome } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 export default function LoginScreen() {
   return (
@@ -26,17 +27,16 @@ export default function LoginScreen() {
           </TouchableOpacity>
         </View>
         <View className="butonss" style={style.butons}>
-          <TouchableOpacity style={style.butons1}>
-            <FontAwesome name="long-arrow-up" size={60} color="#3c3c3c"/>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={style.butons2}>
-            <FontAwesome name="long-arrow-up" size={60} color="#3c3c3c"/>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={style.butons3}>
-            <FontAwesome name="long-arrow-up" size={60} color="#3c3c3c"/>
-          </TouchableOpacity>
+          <View style={style.googlee}>
+            <TouchableOpacity style={style.butons1}>
+              <AntDesign name="google" size={60} color="#3c3c3c" />
+            </TouchableOpacity>
+          </View>
+          <View style={style.facebookk}>
+            <TouchableOpacity>
+              <FontAwesome name="facebook-f" size={60} color="#3c3c3c" />
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>
