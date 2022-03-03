@@ -52,12 +52,20 @@ export default StyleSheet.create({
             // Transform the origin back up
             { translateY: -100 / 2 },
         ],
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 8,
     },
 
     arrowG: {
         justifyContent: 'center',
         alignSelf: 'center',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         height: 100,
         width: '20%',
         borderRadius: 50,
@@ -84,20 +92,49 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
 
-    butons:{
-        display:'flex',
-        alignItems:'flex-end',
-        justifyContent:'center',
-        flexDirection:'row',
-        marginTop:'7%'
+    butons: {
+        display: 'flex',
+        alignItems: 'flex-end',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        marginTop: '3%',
     },
 
-    butons1:{
-        marginRight: 70
+    googlee: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#f2bc1b',
+        marginRight: '5%',
+        width: 80,
+        height: 80,
+        borderRadius: 50,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 4,
     },
 
-    butons2:{
-        marginRight: 70
+    facebookk: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#f2bc1b',
+        width: 80,
+        height: 80,
+        borderRadius: 50,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 4,
     },
 
 });
