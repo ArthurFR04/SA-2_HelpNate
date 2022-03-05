@@ -1,14 +1,7 @@
 import React from 'react'
 import { View, TextInput, Text, Button} from "react-native";
-<<<<<<< HEAD
-import style from './Loginstyle'
-=======
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import style from './loginstyle'
-
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
->>>>>>> b21132c410e63e4011a7c337d229eb5ac4599435
 import { Link } from '@react-navigation/native';
 
 export default function LoginScreen() {
@@ -22,17 +15,6 @@ export default function LoginScreen() {
           <Text style={style.textbtn}>Logar</Text>
         </TouchableOpacity>
       </View>
-<<<<<<< HEAD
-      <Link to={{ screen: 'Registration'}}>
-          Dale pro Registrozinho
-      </Link>
-=======
-
-      {/*<Link to={{ screen: 'Registration'}}>
-          Dale pro Registrozinho
-      </Link>*/}
- 
->>>>>>> b21132c410e63e4011a7c337d229eb5ac4599435
       <View className="conteudo-2">
 
         <TouchableOpacity>

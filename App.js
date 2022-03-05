@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SafeAreaView, useWindowDimensions  } from "react-native";
 import {RegistrationScreen} from './src/screens/Registration/RegistrationScreen';
-import LoginScreen from './src/screens/Login/LoginScreen';
+import LoginScreen from './src/screens/login/LoginScreen';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -12,7 +12,7 @@ const App = () => {
   const dimensions = useWindowDimensions();
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: "#f2f2f2"}}>
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Registration" screenOptions={{
             headerStyle:{backgroundColor:"#f2bc1b"},

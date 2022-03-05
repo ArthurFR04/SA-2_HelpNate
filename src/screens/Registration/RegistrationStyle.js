@@ -3,8 +3,12 @@ import { StyleSheet, Dimensions } from "react-native";
 export default StyleSheet.create({
     container:{
         width: "100%",
-        height: Dimensions.get('window').height / 4,
+        height: "100%",
         backgroundColor: "#f2f2f2"
+    },
+    containerCircle:{
+        height: "30%",
+        paddingBottom: 35
     },
     circle:{
         position: "relative",
@@ -21,7 +25,7 @@ export default StyleSheet.create({
         borderBottomEndRadius: Dimensions.get('window').width / 2,
         borderBottomStartRadius: Dimensions.get('window').width / 2
     },
-    containerCircle:{
+    circleFormat:{
         position: "relative",
         height: "100%",
         backgroundColor: "#F2BC1B",
@@ -30,7 +34,7 @@ export default StyleSheet.create({
     },
     arrow:{
         position: "absolute",
-        top: "85%",
+        top: "83%",
         left: "50%",
         transform: [{translateX: - (Dimensions.get('window').width) / 10}],
         width: 70,
@@ -52,13 +56,83 @@ export default StyleSheet.create({
     logoCircle:{
         position: "absolute",
         top: "7.5%",
-        left: "29%",
-        width: "40%",
-        height: "70%",
-        backgroundColor: "#CCBC3B",
+        left: "31%",
+        width: "35%",
+        height: "65%",
         borderRadius: Dimensions.get('window').width / 2,
         display: "flex",
         justifyContent: "center",
         alignItems: "center"
+    },
+    imageLogo:{
+        flex: 1,
+        resizeMode: 'contain'
+    },
+    content:{
+        height: "55%",
+        display: "flex",
+        alignItems: "center",
+    },
+    title:{
+        height: "18%",
+        fontSize: 42,
+        fontWeight: "700",
+        color: "#3C3C3C",
+        padding: 18
+    },
+    containerInput:{
+        width: "100%",
+        height: "70%",
+        display: "flex",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+    },
+    input:{
+        width: "75%",
+        height: 45,
+        backgroundColor: "#E5E5E5",
+        borderRadius: 10,
+        fontWeight: "bold",
+        fontSize: 16,
+        color: "#3C3C3C",
+        paddingLeft: 10
+    },
+    button:{
+        width: "60%",
+        height: "10%",
+        backgroundColor: "#F2BC1B",
+        borderRadius: 8,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderWidth: 3,
+        borderColor: "#FFEF6D"
+    },
+    textButton:{
+        fontSize: 23,
+        fontWeight: "700",
+        color: "#F2F2F2",
+    },
+    containerOpcoes:{
+        height: "15%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+    },
+    opcao:{
+        width: 65,
+        height: 65,
+        backgroundColor: "#F2BC1B",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: Dimensions.get('screen').width / 2
+    },
+    opcaoButton:{
+        borderRadius: Dimensions.get('screen').width / 2
+    },
+    icon:{
+        borderRadius: Dimensions.get('screen').width / 2
     }
 })
