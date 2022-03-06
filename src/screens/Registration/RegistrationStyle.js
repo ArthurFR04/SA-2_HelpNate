@@ -74,11 +74,9 @@ export default StyleSheet.create({
         alignItems: "center",
     },
     title:{
-        height: "18%",
         fontSize: 42,
         fontWeight: "700",
         color: "#3C3C3C",
-        padding: 18
     },
     containerInput:{
         width: "100%",
