@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity, ScrollView} from 'react-native';
-import style from './SearchStyle'; 
+import style from './IndividualChatStyle'; 
 import { Link } from '@react-navigation/native';
 
-export const SearchScreen = () =>{
+export const IndividualChatScreen = () =>{
     return(
         <View style={style.container}>
-            <Text>Search Screen</Text>
+            <Text>Individual Chat Screen</Text>
         </View>
     )   
 }

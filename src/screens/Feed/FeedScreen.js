@@ -6,6 +6,6 @@ import { FontAwesome, AntDesign, FontAwesome5, Entypo} from '@expo/vector-icons'
 
 export const FeedScreen = () =>{
     return(
-       <Text>oi</Text>
+       <Text>Feed</Text>
     )   
 }

@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, TextInput, Text, TouchableOpacity } from "react-native";
-import style from './Loginstyle'
+import style from './LoginStyle'
 import { Link } from '@react-navigation/native';
 import { FontAwesome } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function LoginScreen() {
+export const LoginScreen = () =>{
   return (
     <View className="container" style={style.container}>
       <LinearGradient colors={['#f2bc1b', '#fff395']} style={style.background} start={{ x: 0, y: 1 }} end={{ x: -1, y: 0 }}>

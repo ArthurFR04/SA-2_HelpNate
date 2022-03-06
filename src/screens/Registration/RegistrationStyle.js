@@ -1,10 +1,7 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, Platform } from "react-native";
 
 export default StyleSheet.create({
     container:{
-        width: "100%",
-        height: "100%",
-        backgroundColor: "#f2f2f2"
     },
     containerCircle:{
         height: "30%",
@@ -21,16 +18,32 @@ export default StyleSheet.create({
         },
         shadowOpacity: 0.5,
         shadowRadius: 2,
-        elevation: 3,
-        borderBottomEndRadius: Dimensions.get('window').width / 2,
-        borderBottomStartRadius: Dimensions.get('window').width / 2
+        elevation: 20,
+        ...Platform.select({
+            android:{
+                borderBottomEndRadius: Dimensions.get('window').width / 2.6,
+                borderBottomStartRadius: Dimensions.get('window').width / 2.6
+            },
+            ios:{
+                borderBottomEndRadius: Dimensions.get('window').width / 2,
+                borderBottomStartRadius: Dimensions.get('window').width / 2
+            }
+        })
     },
     circleFormat:{
         position: "relative",
         height: "100%",
         backgroundColor: "#F2BC1B",
-        borderBottomEndRadius: Dimensions.get('window').width / 2,
-        borderBottomStartRadius: Dimensions.get('window').width / 2,
+        ...Platform.select({
+            android:{
+                borderBottomEndRadius: Dimensions.get('window').width / 2.6,
+                borderBottomStartRadius: Dimensions.get('window').width / 2.6
+            },
+            ios:{
+                borderBottomEndRadius: Dimensions.get('window').width / 2,
+                borderBottomStartRadius: Dimensions.get('window').width / 2
+            }
+        })
     },
     arrow:{
         position: "absolute",
@@ -51,7 +64,7 @@ export default StyleSheet.create({
         },
         shadowOpacity: 0.7,
         shadowRadius: 2,
-        elevation: 3,
+        elevation: 10,
     },
     logoCircle:{
         position: "absolute",
