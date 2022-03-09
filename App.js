@@ -8,14 +8,14 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { LoginScreen } from './src/screens/Login/LoginScreen';
 import { RegistrationScreen } from './src/screens/Registration/RegistrationScreen';
 import { 
-  Registration2, 
-  Profile, 
-  Feed, 
-  AllChats, 
-  IndividualChat,
-   NewPost, 
-   IndividualPost, 
-   Search } from './AppStackRoutes';
+  Stack_Registration2, 
+  Stack_Profile, 
+  Stack_Feed, 
+  Stack_AllChats, 
+  Stack_IndividualChat,
+  Stack_NewPost, 
+  Stack_IndividualPost, 
+  Stack_Search } from './AppStackRoutes';
 
 const Drawer = createDrawerNavigator();
 
@@ -26,14 +26,14 @@ export default function App(){
         <Drawer.Navigator initialRouteName="Feed">
           <Drawer.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
           <Drawer.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false}} />
-          <Drawer.Screen name="Registration2" component={Registration2} options={{headerShown: false}} />
-          <Drawer.Screen name="Profile" component={Profile} options={{headerShown: false}} />
-          <Drawer.Screen name="Feed" component={Feed} options={{headerShown: false}} />
-          <Drawer.Screen name="AllChats" component={AllChats} options={{headerShown: false}} />
-          <Drawer.Screen name="IndividualChat" component={IndividualChat} options={{headerShown: false}} />
-          <Drawer.Screen name="NewPost" component={NewPost} options={{headerShown: false}} />
-          <Drawer.Screen name="IndividualPost" component={IndividualPost} options={{headerShown: false}} />
-          <Drawer.Screen name="Search" component={Search} options={{headerShown: false}} />
+          <Drawer.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false}} />
+          <Drawer.Screen name="Profile" component={Stack_Profile} options={{headerShown: false}} />
+          <Drawer.Screen name="Feed" component={Stack_Feed} options={{headerShown: false}} />
+          <Drawer.Screen name="AllChats" component={Stack_AllChats} options={{headerShown: false}} />
+          <Drawer.Screen name="IndividualChat" component={Stack_IndividualChat} options={{headerShown: false}} />
+          <Drawer.Screen name="NewPost" component={Stack_NewPost} options={{headerShown: false}} />
+          <Drawer.Screen name="IndividualPost" component={Stack_IndividualPost} options={{headerShown: false}} />
+          <Drawer.Screen name="Search" component={Stack_Search} options={{headerShown: false}} />
         </Drawer.Navigator>
       </NavigationContainer>
     </SafeAreaView>
