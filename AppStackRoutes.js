@@ -60,7 +60,7 @@ export const Feed = () => (
         headerStyle: { backgroundColor: "#F2BC1B", height: 50},
         headerTitle: () => (<Text></Text>),
         headerLeft: () => (
-            <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", paddingLeft: 20}}>
+            <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", paddingLeft: 10}}>
                 <FontAwesome name="bars" style={{ marginRight: 8, color: "#3c3c3c" }} size={32} onPress={() =>navigation.dispatch(DrawerActions.toggleDrawer())} />
                 <Text style={{color: "#3c3c3c", fontSize: 24 }}>Feed</Text>
             </View>
