@@ -4,10 +4,10 @@
     "slug": "HelpNate",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "",
+    "icon": "./assets/images/logo.png",
     "splash": {
-      "image": "./assets/images/logo_menor.png",
-      "resizeMode": "contain",
+      "image": "./assets/images/splash.png",
+      "resizeMode": "cover",
       "backgroundColor": "#f2bc1b"
     },
     "updates": {
