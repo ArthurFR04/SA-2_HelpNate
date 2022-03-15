@@ -2,10 +2,129 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 
-    thumbnail:{
-        height:100,
-        width: 100
-    }
+    container: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
 
+    topPage: {
+        backgroundColor: '#fff',
+        width: '85%',
+        height: '35%',
+        borderRadius: 15,
+        padding: '3%',
+
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+        elevation: 3,
+    },
+
+    tituloP: {
+        backgroundColor: '#E5E5E5',
+        padding: '2%',
+        borderRadius: 8,
+        fontSize: 18,
+
+    },
+
+    descrP: {
+        top: '10%',
+        backgroundColor: '#E5E5E5',
+        padding: '2%',
+        borderRadius: 8,
+        height: '60%',
+        fontSize: 18,
+
+    },
+
+    categoria: {
+        backgroundColor: '#fff',
+        width: '85%',
+        borderRadius: 8,
+        padding: '3%',
+        top: '2%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+        elevation: 3,
+    },
+
+    fotosGeral: {
+        backgroundColor: '#f0fc',
+        padding: '3%',
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        top: '5%',
+        width: '85%',
+
+    },
+
+    fotos: {
+        display: 'flex',
+        flexDirection: 'row',
+    },
+
+    thumbnail: {
+        alignSelf: 'center',
+        height: 50,
+        width: 50,
+    },
+
+    locate: {
+        backgroundColor: '#fff',
+        top: '10%',
+        width: '85%',
+        padding: '2%',
+        paddingBottom: '5%',
+        alignItems: 'center',
+        borderRadius: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+        elevation: 3,
+    },
+
+    locateText: {
+        fontSize: 18
+    },
+
+    cep: {
+        fontSize: 18,
+        width: '95%',
+        backgroundColor: '#e5e5e5',
+        padding: '3%',
+        borderRadius: 10,
+        top: '10%',
+    },
+
+    btnSend: {
+        top: '15%',
+        backgroundColor: '#F2BC1B',
+        padding: '5%',
+        borderRadius: 20
+    },
+
+    Text: {
+        fontSize: 18
+    }
 
 })

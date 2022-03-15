@@ -17,9 +17,9 @@ import { AntDesign, Ionicons, FontAwesome5, FontAwesome , EvilIcons, MaterialCom
 
 const Stack = createStackNavigator();
 
-export const Registration2 = () => (
+export const Stack_Registration2 = () => (
     <Stack.Navigator>
-      <Stack.Screen name="Registration2" component={Registration2Screen} options={({navigation}) => ({
+      <Stack.Screen name="Registration2.2" component={Registration2Screen} options={({navigation}) => ({
         headerStyle: { backgroundColor: "#F2BC1B", height: 50},
         headerTitle: () => (<Text></Text>),
         headerLeft: () => (
@@ -32,9 +32,9 @@ export const Registration2 = () => (
     </Stack.Navigator>
   );
   
-export const Profile = () => (
+export const Stack_Profile = () => (
     <Stack.Navigator>
-      <Stack.Screen name="Profile" component={ProfileScreen} options={({navigation}) => ({
+      <Stack.Screen name="Profile2" component={ProfileScreen} options={({navigation}) => ({
         headerStyle: { backgroundColor: "#F2BC1B", height: 50},
         headerTitle: () => (<Text></Text>),
         headerLeft: () => (
@@ -54,9 +54,9 @@ export const Profile = () => (
     </Stack.Navigator>
   );
   
-export const Feed = () => (
+export const Stack_Feed = () => (
     <Stack.Navigator>
-      <Stack.Screen name="Feed" component={FeedScreen} options={({navigation}) => ({
+      <Stack.Screen name="Feed2" component={FeedScreen} options={({navigation}) => ({
         headerStyle: { backgroundColor: "#F2BC1B", height: 50},
         headerTitle: () => (<Text></Text>),
         headerLeft: () => (
@@ -76,9 +76,9 @@ export const Feed = () => (
     </Stack.Navigator>
   );
   
-export const AllChats = () => (
+export const Stack_AllChats = () => (
     <Stack.Navigator>
-      <Stack.Screen name="AllChats" component={AllChatsScreen} options={({navigation}) => ({
+      <Stack.Screen name="AllChats2" component={AllChatsScreen} options={({navigation}) => ({
         headerStyle: { backgroundColor: "#F2BC1B", height: 50},
         headerTitle: () => (<Text></Text>),
         headerLeft: () => (
@@ -95,9 +95,9 @@ export const AllChats = () => (
     </Stack.Navigator>
   );
   
-export const IndividualChat = () => (
+export const Stack_IndividualChat = () => (
     <Stack.Navigator>
-    <Stack.Screen name="IndividualChat" component={IndividualChatScreen} options={({navigation}) => ({
+    <Stack.Screen name="IndividualChat2" component={IndividualChatScreen} options={({navigation}) => ({
         headerStyle: { backgroundColor: "#F2BC1B", height: 50},
         headerTitle: () => (<Text></Text>),
         headerLeft: () => (
@@ -114,9 +114,9 @@ export const IndividualChat = () => (
   </Stack.Navigator>
   );
   
-export const NewPost = () => (
+export const Stack_NewPost = () => (
     <Stack.Navigator>
-      <Stack.Screen name="NewPost" component={NewPostScreen} options={({navigation}) => ({
+      <Stack.Screen name="NewPost2" component={NewPostScreen} options={({navigation}) => ({
         headerStyle: { backgroundColor: "#F2BC1B", height: 50},
         headerTitle: () => (<Text></Text>),
         headerLeft: () => (
@@ -132,9 +132,9 @@ export const NewPost = () => (
     </Stack.Navigator>
   );
   
-export const IndividualPost = () => (
+export const Stack_IndividualPost = () => (
     <Stack.Navigator>
-      <Stack.Screen name="IndividualPost" component={IndividualPostScreen} options={({navigation}) => ({
+      <Stack.Screen name="IndividualPost2" component={IndividualPostScreen} options={({navigation}) => ({
         headerStyle: { backgroundColor: "#F2BC1B", height: 50},
         headerTitle: () => (<Text></Text>),
         headerLeft: () => (
@@ -150,9 +150,9 @@ export const IndividualPost = () => (
     </Stack.Navigator>
   );
   
-export const Search = () => (
+export const Stack_Search = () => (
     <Stack.Navigator>
-      <Stack.Screen name="Search" component={SearchScreen} options={({navigation}) => ({
+      <Stack.Screen name="Search2" component={SearchScreen} options={({navigation}) => ({
         headerStyle: { backgroundColor: "#F2BC1B", height: 50},
         headerTitle: () => (
         <TextInput placeholder='Foguete do Elon Musk' 
