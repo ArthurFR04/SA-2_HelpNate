@@ -8,5 +8,5 @@ export const SearchScreen = () =>{
         <View style={style.container}>
             <Text>Search Screen</Text>
         </View>
-    )   
+    )
 }
