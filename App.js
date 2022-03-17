@@ -24,10 +24,10 @@ const Drawer = createDrawerNavigator();
 export default function App(){
   if (Platform.OS != "web") {
     return (
-      <SafeAreaView style={{flex: 1, backgroundColor: "#e3b014"}}>
+      <SafeAreaView edges={'top'} style={{flex: 1, backgroundColor: "#e3b014"}}>
         <NavigationContainer>
           {/* <Drawer.Navigator initialRouteName="Feed"> */}
-          <Drawer.Navigator initialRouteName="Registration2">
+          <Drawer.Navigator initialRouteName="Feed">
             <Drawer.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
             <Drawer.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false}} />
             <Drawer.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false}} />
