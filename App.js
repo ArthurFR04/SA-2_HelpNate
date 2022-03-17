@@ -1,4 +1,5 @@
 import React from 'react';
+import 'react-native-gesture-handler';
 import { Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
