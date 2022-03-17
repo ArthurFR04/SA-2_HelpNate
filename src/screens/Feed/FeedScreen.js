@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity, ScrollView, Dimensions} from 'react-native';
 import style from './FeedStyle'; 
 import { Link } from '@react-navigation/native';
@@ -9,35 +9,50 @@ export const FeedScreen = () =>{
 
     const[active, setActive] = useState(false)
     const[desactive, setDesactive] = useState(true)
-    // const[arrayValue, setArrayValue] = useState([])
     const arrayValue = []
+
+    let testeSrc  = [
+        {
+            src: <Image source={require("../../../assets/images/ismaelSilva.jpg")} style={style.userImage}></Image>
+            ,
+            postImages:[
+                {src: <Image source={require("../../../assets/images/camisetaPreta.jpg")} style={style.imageCarousel}></Image>},
+                {src: <Image source={require("../../../assets/images/camisePretaVerso.jpg")} style={style.imageCarousel}></Image>}
+            ]
+        },
+        {
+            src: <Image source={require("../../../assets/images/BATTISTELLA.jpg")} style={style.userImage}></Image>,
+            postImages:[
+                {src: <Image source={require("../../../assets/images/mesaMarmore.png")} style={style.imageCarousel}></Image>},
+                {src: <Image source={require("../../../assets/images/mesaDeMarmore2.jpg")} style={style.imageCarousel}></Image>}
+            ]
+        },
+        {
+            src: <Image source={require("../../../assets/images/ARTHUR.jpg")} style={style.userImage}></Image>,
+            postImages:[
+                {src: <Image source={require("../../../assets/images/PS2.png")} style={style.imageCarousel}></Image>},
+                {src: <Image source={require("../../../assets/images/PS22.jpg")} style={style.imageCarousel}></Image>}
+            ]
+        }
+    ]
 
     const teste = [{
         nome: "Ismael Teixeira da Silva",
-        fotoPerfil : require("../../../assets/images/ismaelSilva.jpg"),
-        images:[
-            {src: require("../../../assets/images/camisetaPreta.jpg")},
-            {src: require("../../../assets/images/camisePretaVerso.jpg")}
-        ]
+        fotoPerfil : null,
+        images:[]
         },
         {
         nome: "Paulo Eduardo Battistella",
-        fotoPerfil : require("../../../assets/images/BATTISTELLA.jpg"),
-        images:[
-            {src: require("../../../assets/images/mesaMarmore.png")},
-            {src: require("../../../assets/images/mesaDeMarmore2.jpg")}
-        ]
+        fotoPerfil : null,
+        images:[]
         },
         {
         nome: "Arthur Rodrigues",
-        fotoPerfil : require("../../../assets/images/ARTHUR.jpg"),
-        images:[
-            {src: require("../../../assets/images/PS2.png")},
-            {src: require("../../../assets/images/PS22.jpg")}
-        ]
+        fotoPerfil : null,
+        images:[]
         }   
     ]
-
+    
     const Doar = () => {
         return <TouchableOpacity style={[style.button, {borderRightWidth: 1} , active == true ? {width: "100%"} : {width: "50%"}]}
                 onPress={() => { if(active === false){setActive(!active, setDesactive(!desactive))}}}>
@@ -51,62 +66,73 @@ export const FeedScreen = () =>{
                     <Text style={style.textButton}>Preciso de algo</Text>
                 </TouchableOpacity>
     }
-
+    
     const CardStructure = (index) => {
-        return (<View style={style.cardPost}>
-                    <View style={style.userInfo}>
-                        <Image source={teste[index].fotoPerfil} style={style.userImage}></Image>
-                        <Text style={style.userName}>{teste[index].nome}</Text>
-                        <Link to={{screen: "IndividualChat"}} style={style.chatIcon}>
-                            <Ionicons name="chatbubble-ellipses" size={32} color="#F2BC1B" />
-                        </Link>
+        teste[index].fotoPerfil = testeSrc[index].src
+        const Srcc = []
+        testeSrc[index].postImages.map((e, i) => {
+            teste[index].images.push(e.src)
+            Srcc.push(teste[index].images[i])
+        })
+        let Src = teste[index].fotoPerfil
+        const ImageStructureeee = () => {
+            return Src
+        }
+        const OtherImage = () => {
+            return Srcc[arrayValue[index].value]
+        }
+        return (
+            <View style={style.cardPost} key={index}>
+                <View style={style.userInfo}>
+                    <ImageStructureeee></ImageStructureeee>
+                    <Text style={style.userName}>{teste[index].nome}</Text>
+                    <Link to={{screen: "IndividualChat"}} style={style.chatIcon}>
+                        <Ionicons name="chatbubble-ellipses" size={32} color="#F2BC1B" />
+                    </Link>
+                </View>
+                <View style={style.postInfo}>
+                    <View style={style.carousel}>
+                        <Feather name="arrow-left" size={28} color="black"
+                        onPress={() => {
+                            if(arrayValue[index].value === 0){
+                                let length = (teste[index].images).length
+                                length--
+                                arrayValue[index].value = length
+                            }
+                            else{
+                                let newValue = arrayValue[index].value
+                                newValue--
+                                arrayValue[index].value = newValue
+                            }
+                        }} />
+
+                        <OtherImage></OtherImage>
+
+                        <Feather name="arrow-right" size={28} color="black" 
+                        onPress={() => {
+                            if(arrayValue[index].value === ((teste[index].images).length - 1)){
+                                arrayValue[index].value = 0
+                                console.warn(arrayValue[index].value)
+                                console.warn(arrayValue)
+                            }
+                            else{
+                                let newValue = arrayValue[index].value
+                                newValue++
+                                arrayValue[index].value = newValue
+                                console.warn(arrayValue)
+                            }
+                        }} 
+                        />
                     </View>
-                    <View style={style.postInfo}>
-                        <View style={style.carousel}>
-                            <Feather name="arrow-left" size={28} color="black"
-                            onPress={() => {
-                                if(arrayValue[index].value === 0){
-                                    let length = (teste[index].images).length
-                                    length--
-                                    arrayValue[index].value = length
-                                }
-                                else{
-                                    let newValue = arrayValue[index].value
-                                    newValue--
-                                    arrayValue[index].value = newValue
-                                }
-                            }} />
-                            <Image source={teste[index].images[arrayValue[index].value].src} style={style.imageCarousel}></Image>
-                            <Feather name="arrow-right" size={28} color="black" 
-                            onPress={() => {
-                                console.warn("2src: " + teste.map(t => t.images[0].src))
-                                if(arrayValue[index].value === ((teste[index].images).length - 1)){arrayValue[index].value = 0
-                                    // console.warn(arrayValue[index].value);
-                                    let posicao = arrayValue[index].value
-                                    // console.warn("LET POSICAO: " + posicao);
-                                    
-                                    // console.warn("src: " + teste[index].images[posicao].src  );
-                                    
-                                    
-                                }
-                                else{
-                                    let newValue = arrayValue[index].value
-                                    newValue++
-                                    arrayValue[index].value = newValue
-                                    console.warn(arrayValue[index].value);
-                                }
-                            }} 
-                            />
-                        </View>
-                        <View style={style.optionsPost}>
-                            <Text style={style.postDescription}>Doa-se mesa de mármore(em bom estado)</Text>
-                            <TouchableOpacity style={style.postButton}>
-                                <Text style={style.textPostButton}>Eu quero!</Text>
-                            </TouchableOpacity>
-                            <Text style={style.postDate}>09/03 17:10  /  Florianópolis</Text>
-                        </View>
+                    <View style={style.optionsPost}>
+                        <Text style={style.postDescription}>Doa-se mesa de mármore(em bom estado)</Text>
+                        <TouchableOpacity style={style.postButton}>
+                            <Text style={style.textPostButton}>Eu quero!</Text>
+                        </TouchableOpacity>
+                        <Text style={style.postDate}>09/03 17:10  /  Florianópolis</Text>
                     </View>
                 </View>
+            </View>
         )
     }
 
