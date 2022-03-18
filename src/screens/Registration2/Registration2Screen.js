@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import styles from './Registration2Style';
 import { Link } from '@react-navigation/native';
-import style from 'react-native-inset-shadow/src/styles';
 import { VirtualizedListCellContextProvider } from 'react-native/Libraries/Lists/VirtualizedListContext';
 
 export const Registration2Screen = () => {

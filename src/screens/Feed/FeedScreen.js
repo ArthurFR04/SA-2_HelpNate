@@ -3,7 +3,7 @@ import {View, Text, Image, TextInput, TouchableOpacity, ScrollView, Dimensions} 
 import style from './FeedStyle'; 
 import { Link } from '@react-navigation/native';
 import { FontAwesome, AntDesign, FontAwesome5, Entypo, MaterialCommunityIcons, Feather, Ionicons  } from '@expo/vector-icons';
-import InsetShadow from 'react-native-inset-shadow'
+                                                                                                                                {/* aqui havia um  InsetShadow*/}
 
 export const FeedScreen = () =>{
 
@@ -161,18 +161,14 @@ export const FeedScreen = () =>{
             { 
             active ? (
             <View style={style.containerButtons}>   
-                <InsetShadow containerStyle={{width: "50%"}} shadowRadius={4} right={false} left={false} bottom={false}>
-                    <Doar></Doar>
-                </InsetShadow>
+                                                                                                                                {/* aqui havia um  InsetShadow*/}
                 <PrecisoDeAlgo></PrecisoDeAlgo>
             </View>
             ): null}
             { desactive ? (
             <View style={style.containerButtons}>                
                 <Doar></Doar>
-                <InsetShadow containerStyle={{width: "50%"}} shadowRadius={4} right={false} left={false} bottom={false}>
-                    <PrecisoDeAlgo></PrecisoDeAlgo>
-                </InsetShadow>
+                                                                                                                                {/* aqui havia um  InsetShadow*/}
             </View>
             ): null}
             <View style={style.containerPosts}>
