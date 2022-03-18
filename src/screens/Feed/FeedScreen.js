@@ -68,7 +68,7 @@ export const FeedScreen = () =>{
     }
     
     const CardStructure = (index) => {
-        teste[index].fotoPerfil = testeSrc[index].src
+        teste[index].fotoPerfil = testeSrc[index].src 
         const Srcc = []
         testeSrc[index].postImages.map((e, i) => {
             teste[index].images.push(e.src)

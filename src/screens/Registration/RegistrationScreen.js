@@ -45,4 +45,13 @@ export const RegistrationScreen = () =>{
             </View>
         </ScrollView>
     )   
+
+    validar = () => {
+        let inputs = 'em processo'
+    }
+
+    salvar = () => {
+        validar()
+        console.log('Salvou');
+    }
 }
