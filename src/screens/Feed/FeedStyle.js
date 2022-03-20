@@ -103,6 +103,7 @@ export default StyleSheet.create({
         flexDirection: "row"
     },
     carousel:{
+        position: "relative",
         width: "45%",
         height: "100%",
         paddingBottom: 3,
@@ -110,6 +111,9 @@ export default StyleSheet.create({
         alignItems: "flex-end"
     },
     imageCarousel:{
+        position: "absolute",
+        zIndex: -2,
+        left: "15%",
         width: "70%",
         height: "90%",
         alignSelf: "center",
@@ -137,5 +141,4 @@ export default StyleSheet.create({
         marginLeft: "auto",
         fontSize: 12
     }
-
 })
