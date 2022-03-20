@@ -3,7 +3,7 @@ import {View, Text, Image, TextInput, TouchableOpacity, ScrollView, Dimensions, 
 import style from './FeedStyle'; 
 import { Link } from '@react-navigation/native';
 import { FontAwesome, AntDesign, FontAwesome5, Entypo, MaterialCommunityIcons, Feather, Ionicons  } from '@expo/vector-icons';
-                                                                                                                                {/* aqui havia um  InsetShadow*/}
+import InsetShadow from 'react-native-inset-shadow'
 
 export const FeedScreen = () =>{
 
@@ -163,10 +163,6 @@ export const FeedScreen = () =>{
                 {teste.map((Element, index) => {
                     return (CardStructure(index))
                 })}
-                {/* <TouchableOpacity onPress={e => {
-                    let newArray = [...arrayValue]
-                    newArray[0] = 999
-                    setarrayValue(newArray)}}><Text>CLICA AQUI PRA AUMENTAR A ARRAY PORRA {arrayValue[0]}</Text></TouchableOpacity> */}
             </View>
         </ScrollView>
     )   
