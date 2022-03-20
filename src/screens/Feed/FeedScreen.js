@@ -3,7 +3,7 @@ import {View, Text, Image, TextInput, TouchableOpacity, ScrollView, Dimensions, 
 import style from './FeedStyle'; 
 import { Link } from '@react-navigation/native';
 import { FontAwesome, AntDesign, FontAwesome5, Entypo, MaterialCommunityIcons, Feather, Ionicons  } from '@expo/vector-icons';
-import InsetShadow from 'react-native-inset-shadow'
+                                                                                                                                {/* aqui havia um  InsetShadow*/}
 
 export const FeedScreen = () =>{
 

@@ -24,7 +24,7 @@ const Drawer = createDrawerNavigator();
 export default function App(){
   if (Platform.OS === "ios") {
     return (
-      <SafeAreaView edges={'top'} style={{flex: 1, backgroundColor: "#e3b014"}}>
+      <SafeAreaView edges={['top']} style={{flex: 1, backgroundColor: "#e3b014"}}>
         <NavigationContainer>
           <Drawer.Navigator initialRouteName="Feed">
             <Drawer.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
