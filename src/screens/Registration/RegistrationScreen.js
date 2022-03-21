@@ -52,6 +52,6 @@ export const RegistrationScreen = () =>{
 
     salvar = () => {
         validar()
-        console.log('Salvou');
+        console.log('Salvou siimm');
     }
 }
