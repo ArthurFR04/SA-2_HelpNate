@@ -2,6 +2,7 @@ import { StyleSheet, Dimensions, Platform } from "react-native";
 
 export default StyleSheet.create({
     container:{
+        flex: 1
     },
     containerCircle:{
         height: "30%",
@@ -82,7 +83,7 @@ export default StyleSheet.create({
         resizeMode: 'contain'
     },
     content:{
-        height: "55%",
+        height: "70%",
         display: "flex",
         alignItems: "center",
     },
@@ -93,7 +94,7 @@ export default StyleSheet.create({
     },
     containerInput:{
         width: "100%",
-        height: "70%",
+        height: "75%",
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
@@ -110,7 +111,7 @@ export default StyleSheet.create({
     },
     button:{
         width: "60%",
-        height: "10%",
+        height: "8%",
         backgroundColor: "#F2BC1B",
         borderRadius: 8,
         display: "flex",
@@ -123,27 +124,5 @@ export default StyleSheet.create({
         fontSize: 23,
         fontWeight: "700",
         color: "#F2F2F2",
-    },
-    containerOpcoes:{
-        height: "15%",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-evenly",
-        alignItems: "center",
-    },
-    opcao:{
-        width: 65,
-        height: 65,
-        backgroundColor: "#F2BC1B",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: Dimensions.get('screen').width / 2
-    },
-    opcaoButton:{
-        borderRadius: Dimensions.get('screen').width / 2
-    },
-    icon:{
-        borderRadius: Dimensions.get('screen').width / 2
     }
 })

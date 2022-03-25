@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity, ScrollView} from 'react-native';
-import { Filter } from '../../components/Filter/Filter'
 import style from './IndividualPostStyle'; 
 import { Link } from '@react-navigation/native';
 import { FontAwesome, AntDesign, FontAwesome5, Entypo, MaterialCommunityIcons, Feather, Ionicons  } from '@expo/vector-icons';

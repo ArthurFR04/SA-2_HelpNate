@@ -26,7 +26,7 @@ export default function App(){
     return (
       <SafeAreaView edges={['top']} style={{flex: 1, backgroundColor: "#e3b014"}}>
         <NavigationContainer>
-          <Drawer.Navigator initialRouteName="Feed">
+          <Drawer.Navigator initialRouteName="Registration">
             <Drawer.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
             <Drawer.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false}} />
             <Drawer.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false}} />
