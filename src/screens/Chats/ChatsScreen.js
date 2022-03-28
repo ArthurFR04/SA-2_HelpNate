@@ -6,7 +6,7 @@ import { Link } from '@react-navigation/native';
 export const AllChatsScreen = () =>{
     return(
         <View style={style.container}>
-            <ScrollView>
+            <ScrollView style={style.scrollview}>
             <TouchableOpacity style={style.chatT}>
                 <View style={style.imgChatView}>
                     <Image source={require("../../../assets/images/ismaelSilva.jpg")} style={style.imgChat}></Image>
