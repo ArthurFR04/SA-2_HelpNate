@@ -99,16 +99,6 @@ export default StyleSheet.create({
         justifyContent: "space-evenly",
         alignItems: "center",
     },
-    input:{
-        width: "75%",
-        height: 45,
-        backgroundColor: "#E5E5E5",
-        borderRadius: 10,
-        fontWeight: "bold",
-        fontSize: 16,
-        color: "#3C3C3C",
-        paddingLeft: 10
-    },
     button:{
         width: "60%",
         height: "8%",

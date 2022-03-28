@@ -43,7 +43,6 @@ export const IndividualPostScreen = () =>{
 
     return(
         <ScrollView ontentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps='handled' showsVerticalScrollIndicator={false}>
-            <Filter></Filter>
             <View style={style.containerPost}>
                 <View style={style.mainContent}>
                     <Text style={style.title}>Doa-se camiseta preta(pouco usada)</Text>
