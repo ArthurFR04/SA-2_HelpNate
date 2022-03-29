@@ -6,7 +6,7 @@ import { Link } from '@react-navigation/native';
 export const IndividualChatScreen = () => {
     return (
         <View style={style.container}>
-            <ScrollView>
+            <ScrollView style={style.scrollview}>
                 <View className="chatDestinatario" style={style.destinatario}>
                     <Text style={style.text}>Olá boa tarde, estou aqui para perguntar se aquele foquete ainda esta para doação? E gostaria de ver algumas imagens dele para ver se está tudo certo.</Text>
                 </View>

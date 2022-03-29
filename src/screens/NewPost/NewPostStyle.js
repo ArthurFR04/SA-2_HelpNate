@@ -5,7 +5,8 @@ export default StyleSheet.create({
     container: {
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 40
     },
 
     topPage: {
@@ -40,7 +41,7 @@ export default StyleSheet.create({
         borderRadius: 8,
         height: '60%',
         fontSize: 18,
-
+        marginTop: 15
     },
 
     categoria: {
@@ -64,7 +65,7 @@ export default StyleSheet.create({
     },
 
     fotosGeral: {
-        backgroundColor: '#f0fc',
+        backgroundColor: '#d2d2d2',
         padding: '3%',
         display: 'flex',
         justifyContent: 'flex-start',
@@ -77,12 +78,23 @@ export default StyleSheet.create({
     fotos: {
         display: 'flex',
         flexDirection: 'row',
+        marginTop: 10
+    },
+
+    quadrofoto: {
+        borderStyle: 'dotted',
+        borderWidth: 2,
+        height: 125,
+        width: 200,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight: 7
     },
 
     thumbnail: {
         alignSelf: 'center',
-        height: 50,
-        width: 50,
+        height: 120,
+        width: 195,
     },
 
     locate: {

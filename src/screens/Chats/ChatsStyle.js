@@ -1,23 +1,29 @@
 import { StyleSheet, Dimensions, Platform } from "react-native";
 
 export default StyleSheet.create({
-    
-    
+
+
     container:{
+        flex: 1,
         display:'flex',
         flexDirection:'column',
 
+    },
+    scrollview: {
+        width:'auto',       
     },
     chatT:{
         display:'flex',
         justifyContent:'center',
         flexDirection:'row',
+        width: '100%',
         marginTop:'8%',
         paddingBottom:'8%',
         borderBottomWidth:1,
     },
     chat:{
         display:'flex',
+        width: '75%',
     },
     imgChat:{
         display:'flex',
@@ -57,4 +63,4 @@ export default StyleSheet.create({
         marginLeft: '60%',
         marginTop:'3%',
     },
-})
+}) 

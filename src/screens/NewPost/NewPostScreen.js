@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TextInput, Text, TouchableOpacity, Image } from "react-native";
+import { View, TextInput, Text, TouchableOpacity, Image, ScrollView, SafeAreaView} from "react-native";
 import styles from './NewPostStyle'
 import { Link } from '@react-navigation/native';
 import { FontAwesome } from '@expo/vector-icons';
@@ -7,7 +7,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as ImagePicker from 'expo-image-picker';
 
-let img1; let img2; let img3; let img4; let img5;
+let img1 = null; let img2 = null; let img3 = null; let img4 = null; let img5 = null;
 
 export const NewPostScreen = () => {
 
@@ -98,74 +98,72 @@ export const NewPostScreen = () => {
 
 
     return (
-        <View className="Container" style={styles.container}>
+        <SafeAreaView>
+            <View className="Container" style={styles.container}>
 
-            <View className="Basico" style={styles.topPage}>
-                <TextInput placeholder='Titúlo' style={styles.tituloP} placeholderTextColor="#3c3c3c"></TextInput>
-                <TextInput placeholder='Descrição...' style={styles.descrP} placeholderTextColor="#3c3c3c"></TextInput>
-            </View>
-
-            <View className="Categoria" style={styles.categoria}>
-                <Text style={styles.Text}>Selecione a categoria</Text>
-                <TouchableOpacity>
-
-                </TouchableOpacity>
-            </View>
-
-            <View className="Fotos" style={styles.fotosGeral}>
-                <Text style={styles.Text}>Fotos</Text>
-                <Text style={styles.Text}>Selecione até 5 fotos</Text>
-
-                <View style={styles.fotos}>
-                    <View style={styles.fotos1}>
-                        <TouchableOpacity onPress={openImagePickerAsync1} style={styles.button}>
-                            <Text style={styles.Text}>Pick a photo 1</Text>
-                        </TouchableOpacity>
-                        <Image source={{ uri: img1 }} style={styles.thumbnail} />
-                    </View>
-
-
-                    <View style={styles.fotos1}>
-                        <TouchableOpacity onPress={openImagePickerAsync2} style={styles.button}>
-                            <Text style={styles.Text}>Pick a photo 2</Text>
-                        </TouchableOpacity>
-                        <Image source={{ uri: img2 }} style={styles.thumbnail} />
-                    </View>
-
-                    <View style={styles.fotos1}>
-                        <TouchableOpacity onPress={openImagePickerAsync3} style={styles.button}>
-                            <Text style={styles.Text}>Pick a photo 3</Text>
-                        </TouchableOpacity>
-                        <Image source={{ uri: img3 }} style={styles.thumbnail} />
-                    </View>
-
-                    <View style={styles.fotos1}>
-                        <TouchableOpacity onPress={openImagePickerAsync4} style={styles.button}>
-                            <Text style={styles.Text}>Pick a photo 4</Text>
-                        </TouchableOpacity>
-                        <Image source={{ uri: img4 }} style={styles.thumbnail} />
-                    </View>
-
-                    <View style={styles.fotos1}>
-                        <TouchableOpacity onPress={openImagePickerAsync5} style={styles.button}>
-                            <Text style={styles.Text}>Pick a photo 5</Text>
-                        </TouchableOpacity>
-                        <Image source={{ uri: img5 }} style={styles.thumbnail} />
-                    </View>
+                <View className="Basico" style={styles.topPage}>
+                    <TextInput placeholder='Titúlo' style={styles.tituloP} placeholderTextColor="#3c3c3c"></TextInput>
+                    <TextInput placeholder='Descrição...' style={styles.descrP} placeholderTextColor="#3c3c3c"></TextInput>
                 </View>
-            </View>
 
-            <View className="Localizacao" style={styles.locate}>
-                <Text style={styles.locateText}>Localização</Text>
-                <TextInput placeholder='CEP' placeholderTextColor="#3c3c3c" style={styles.cep}></TextInput>
-            </View>
+                <View className="Categoria" style={styles.categoria}>
+                    <Text style={styles.Text}>Selecione a categoria</Text>
+                    <TouchableOpacity>
 
-            <View className="EnviarBTN" style={styles.btnSend}>
-                <TouchableOpacity>
-                    <Text style={styles.Text}>Enviar anúncio</Text>
-                </TouchableOpacity>
-            </View>
+                    </TouchableOpacity>
+                </View>
 
-        </View>
+                <View className="Fotos" style={styles.fotosGeral}>
+                    <Text style={styles.Text}>Selecione até 5 fotos</Text>
+                    <ScrollView>
+                        <View style={styles.fotos}>
+
+                            <View style={styles.quadrofoto}>
+                                <TouchableOpacity onPress={openImagePickerAsync1} style={styles.button}>
+                                    {img1 === null ? <Text style={styles.Text}>Pick a photo 1</Text> : <Image source={{ uri: img1 }} style={styles.thumbnail} />}
+                                </TouchableOpacity>
+                            </View>
+
+                            <View style={styles.quadrofoto}>
+                                <TouchableOpacity onPress={openImagePickerAsync2} style={styles.button}>
+                                    {img2 === null ? <Text style={styles.Text}>Pick a photo 2</Text> : <Image source={{ uri: img2 }} style={styles.thumbnail} />}
+                                </TouchableOpacity>
+                            </View>
+
+                            <View style={styles.quadrofoto}>
+                                <TouchableOpacity onPress={openImagePickerAsync3} style={styles.button}>
+                                    {img3 === null ? <Text style={styles.Text}>Pick a photo 3</Text> : <Image source={{ uri: img3 }} style={styles.thumbnail} />}
+                                </TouchableOpacity>
+                            </View>
+
+                            <View style={styles.quadrofoto}>
+                                <TouchableOpacity onPress={openImagePickerAsync4} style={styles.button}>
+                                    {img4 === null ? <Text style={styles.Text}>Pick a photo 4</Text> : <Image source={{ uri: img4 }} style={styles.thumbnail} />}
+                                </TouchableOpacity>
+                            </View>
+
+                            <View style={styles.quadrofoto}>
+                                <TouchableOpacity onPress={openImagePickerAsync5} style={styles.button}>
+                                    {img5 === null ? <Text style={styles.Text}>Pick a photo 5</Text> : <Image source={{ uri: img5 }} style={styles.thumbnail} />}
+                                </TouchableOpacity>
+                            </View>
+
+                        </View>
+                    </ScrollView>
+                </View>
+
+                <View className="Localizacao" style={styles.locate}>
+                    <Text style={styles.locateText}>Localização</Text>
+                    <TextInput placeholder='CEP' placeholderTextColor="#3c3c3c" style={styles.cep}></TextInput>
+                </View>
+
+                <View className="EnviarBTN" style={styles.btnSend}>
+                    <TouchableOpacity>
+                        <Text style={styles.Text}>Enviar anúncio</Text>
+                    </TouchableOpacity>
+                </View>
+
+            </View>
+        </SafeAreaView>
     );
 }
