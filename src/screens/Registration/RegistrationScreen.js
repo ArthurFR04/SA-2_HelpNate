@@ -6,19 +6,23 @@ import { Link } from '@react-navigation/native';
 import { FontAwesome, AntDesign, FontAwesome5, Entypo} from '@expo/vector-icons';
 import CustomInput from "../../components/customInput/customInput";
 import { useForm, Controller } from "react-hook-form";
+import { useNavigation } from '@react-navigation/native'
 
 const EMAIL_AUTH = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 export const RegistrationScreen = () =>{
 
-    const { registrationInfo, firstPart } = useContext(RegistrationContext)
-    const { control, handleSubmit, formState: {errors} ,watch } = useForm();
+    const navigation = useNavigation()
+
+    const { firstPart } = useContext(RegistrationContext)
+    const { control, handleSubmit, formState: {errors}, watch } = useForm();
     const verify = watch('senha')
 
-    const onSubmit = data => {
-        firstPart(data)
+    const onSubmit = async(data) => {
+        await firstPart(data)
+        navigation.navigate("Registration2")
     }
-    
+        
     return(
         <ScrollView contentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps='handled'>
             <View style={style.container}>

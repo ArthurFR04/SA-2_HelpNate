@@ -25,12 +25,11 @@ function RegistrationInfoProvider({children}){
         newValues.senha = data.senha;
         newValues.telefone = data.telefone;
         setregistrationInfo(newValues)
-        console.warn(registrationInfo);
-        navigation.navigate("Feed")
+        return console.warn(registrationInfo);
     }
 
     return(
-        <RegistrationContext.Provider value={{registrationInfo, firstPart}}>
+        <RegistrationContext.Provider value={{firstPart}}>
             {children}
         </RegistrationContext.Provider>
     )
