@@ -1,27 +1,58 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { RegistrationContext } from '../../components/context/RegistrationContext';
+import CustomInput from "../../components/customInput/customInput";
+import { useForm, Controller } from "react-hook-form";
 import styles from './Registration2Style';
 import { Link } from '@react-navigation/native';
-import { VirtualizedListCellContextProvider } from 'react-native/Libraries/Lists/VirtualizedListContext';
 
 export const Registration2Screen = () => {
+
+    const { secondPart, insertData } = useContext(RegistrationContext)
+    const { control, handleSubmit, formState: { errors }, watch } = useForm();
+
+    function onSubmit(data){
+        secondPart(data)
+    }
+
+    function onSubmitDirectly(){
+        insertData()
+    }
+
     return (
         <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps='handled'>
             <View style={styles.container}>
-                <View className='tituloPagina' style={styles.tituloContent}>
+                <View style={styles.tituloContent}>
                     <Text style={styles.tituloP}>Continuar cadastro</Text>
                 </View>
-                <View className='inputs' style={styles.inputs}>
-                    <TextInput style={styles.textInput} placeholder='Nome' placeholderTextColor="#3c3c3c"></TextInput>
-                    <TextInput style={styles.textInput} placeholder='Localização' placeholderTextColor="#3c3c3c"></TextInput>
-                    <TextInput style={styles.textInput} placeholder='Telefone' placeholderTextColor="#3c3c3c"></TextInput>
-                    <TextInput style={styles.textInput} placeholder='Senha' placeholderTextColor="#3c3c3c"></TextInput>
-                    <View style={styles.descInput}>
-                        <TextInput placeholder='O que você está buscando'  placeholderTextColor="#3c3c3c"></TextInput>
-                        {/*Pesquisar word wrap */}
-                    </View>
+                <View style={styles.inputs}>
+                    <CustomInput
+                        name="cep"
+                        placeholder="CEP"
+                        control={control}
+                        rules={{ required: "CEP é obrigatório!" }}
+                    />
+                    <CustomInput
+                        name="cidade"
+                        placeholder="Cidade"
+                        control={control}
+                        rules={{ required: "CEP é obrigatório!" }}
+                    />
+                    <CustomInput
+                        name="estado"
+                        placeholder="Estado"
+                        control={control}
+                        rules={{ required: "CEP é obrigatório!" }}
+                    />
+                    <CustomInput
+                        name="biografia"
+                        placeholder="Biografia"
+                        control={control}
+                        style={{ height: 60}}
+                    />
+
                 </View>
-                <View className='fotoUsuario' style={styles.contentUser}>
+                <View style={styles.contentUser}>
                     <Text style={styles.textUser} >Adicionar foto de perfil</Text>
                     <View style={styles.fotoUser}>
                         <TouchableOpacity style={styles.addPicture}>
@@ -37,9 +68,12 @@ export const Registration2Screen = () => {
                         </View>
                     </View>
                 </View>
-                <View>
-                    <TouchableOpacity style={styles.btnFinalizar}>
-                        <Text style={styles.btnText}>Finalizar</Text>
+                <View style={styles.containerButtons}>
+                    <TouchableOpacity style={styles.btnFinalizar} onPress={handleSubmit(onSubmit)}>
+                        <Text>Finalizar</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.btnPular} onPress={onSubmitDirectly}>
+                        <Text style={styles.btnText}>Pular</Text>
                     </TouchableOpacity>
                 </View>
             </View>

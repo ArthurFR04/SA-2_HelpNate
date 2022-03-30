@@ -2,11 +2,13 @@ import { StyleSheet, Dimensions, Platform } from "react-native";
 
 export default StyleSheet.create({
     container: {
-        display: 'flex',
-        alignSelf: 'center',
-        justifyContent: 'center',
         width: '90%',
-        marginTop: 20,
+        height: Dimensions.get('window').height / 1.3,
+        alignItems: 'center',
+        paddingBottom: '1%',
+        marginTop: "5%",
+        marginLeft: "auto",
+        marginRight: "auto",
         backgroundColor: '#fff',
         borderRadius: 15,
         shadowColor: "#000",
@@ -19,44 +21,33 @@ export default StyleSheet.create({
         elevation: 4,
     },
     tituloContent: {
-        display: 'flex',
-        alignItems: 'center',
-        alignSelf: 'center',
-        justifyContent: 'center',
-        padding: '4%',
         width: '90%',
+        height: "8%",
+        paddingTop: "1%",
+        justifyContent: 'center',
+        marginLeft: "auto",
+        marginRight: "auto",
         borderBottomWidth: 1,
         borderBottomColor: '#3c3c3c'
     },
     tituloP: {
+        width: '100%',
+        textAlign: 'center',
         fontSize: 25,
         color: '#3c3c3c',
     },
     inputs: {
-        display: 'flex',
-        alignSelf: 'center',
+        width: '100%',
+        height: "50%",
+        justifyContent: 'space-between',
+        alignItems: 'center',
         marginTop: '5%',
-        width: '85%',
-    },
-    textInput: {
-        borderRadius: 8,
-        padding: '3%',
-        marginTop: '4%',
-        backgroundColor: '#eeee'
-    },
-    descInput: {
-        borderRadius: 8,
-        padding: '3%',
-        marginTop: '4%',
-        marginBottom: '10%',
-        height: 120,
-        backgroundColor: '#eeee',
     },
     contentUser: {
         backgroundColor: '#eeee',
-        display: 'flex',
-        alignSelf: 'center',
+        marginTop: '5%',
         width: '85%',
+        height: '28%',
         padding: '3%',
         borderRadius: 10,
     },
@@ -107,9 +98,13 @@ export default StyleSheet.create({
         transform: [
             { translateY: 50 / 2 },
             { translateY: 0 / 2 },
-
             { translateX: 50 / 2 },
         ],
+    },
+    containerButtons:{
+        width: "100%",
+        justifyContent: 'space-around',
+        flexDirection: 'row',
     },
     btnFinalizar:{
         display:'flex',
@@ -122,11 +117,17 @@ export default StyleSheet.create({
         marginTop:'5%',
         marginBottom:'5%',
         borderRadius:6
-        
+    },
+    btnPular:{
+        alignItems: "flex-end",
+        justifyContent:'center',
+        width:100,
+        height:35,
+        marginTop:'5%',
+        marginBottom:'5%',
     },
     btnText:{
-
+        fontSize: 15,
+        color: "#A1A1A1" 
     }
-
-
 })

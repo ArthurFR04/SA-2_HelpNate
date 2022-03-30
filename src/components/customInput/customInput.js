@@ -15,8 +15,9 @@ const CustomInput = ({ control, name, rules = {}, placeholder, secureTextEntry})
             onChangeText={ onChange }
             onBlur={ onBlur }
             placeholder={ placeholder }
-            style={[style.input,{ borderColor: error ? 'red' : 'transparent' }]}
+            style={[style.input,{ borderColor: error ? 'red' : 'transparent'}, name === 'biografia' ? {height: 150}: {height: 45}]}
             secureTextEntry={ secureTextEntry }
+            multiline={name === 'biografia' ? true : false}
           />
           {error && (
             <Text style={{ width: "75%", marginLeft: "auto", marginRight: "auto", color: 'red', textAlign: "left", fontSize: 12 }}>{error.message || 'Error'}</Text>
@@ -29,9 +30,9 @@ const CustomInput = ({ control, name, rules = {}, placeholder, secureTextEntry})
 
 const style = StyleSheet.create({
   input:{
-    width: "75%",
-    height: 45,
+    width: "85%",
     backgroundColor: "#E5E5E5",
+    textAlignVertical: "top",
     borderRadius: 10,
     fontWeight: "bold",
     fontSize: 16,
