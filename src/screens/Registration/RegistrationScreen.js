@@ -13,7 +13,6 @@ const EMAIL_AUTH = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-
 export const RegistrationScreen = () =>{
 
     const navigation = useNavigation()
-
     const { firstPart } = useContext(RegistrationContext)
     const { control, handleSubmit, formState: {errors}, watch } = useForm();
     const verify = watch('senha')

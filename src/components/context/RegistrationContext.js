@@ -15,13 +15,27 @@ function RegistrationInfoProvider({children}){
         cidade: "",
         estado: "",
         biografia: ''
-    })
+    });
+    const[file, setFile] = useState(null);
 
-    function insertData(){
+    async function insertImageProfile(id){
+        try {
+            const data = new FormData();
+            data.append('id', id[0].idusuario)
+            data.append('img', {uri: file.uri, type: 'image', name: 'imagemDePerfil'}); 
+            await fetch("http://localhost:5000/imagemPerfil",{
+                method: "POST",  
+                body: data
+            });
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+
+    async function insertData(){
         try {
             if(registrationInfo.estado != ""){
-                console.warn(registrationInfo);
-                fetch("http://localhost:5000/usuarioCompleto",{
+                let newUser = await fetch("http://localhost:5000/usuarioCompleto",{
                     method: "POST",
                     headers: { "Content-Type":"application/json" },
                     body: JSON.stringify({
@@ -37,9 +51,10 @@ function RegistrationInfoProvider({children}){
                         biografia: registrationInfo.biografia
                     })
                 })
+                let newUserInfo = await newUser.json()
+                insertImageProfile(newUserInfo)
             }
             else{
-
                 fetch("http://localhost:5000/usuarioIncompleto",{
                     method: "POST",
                     headers: { "Content-Type":"application/json" },
@@ -67,7 +82,6 @@ function RegistrationInfoProvider({children}){
         newValues.senha = data.senha;
         newValues.telefone = data.telefone;
         setregistrationInfo(newValues)
-        console.log(registrationInfo);
     }
 
     function secondPart(data){
@@ -81,7 +95,7 @@ function RegistrationInfoProvider({children}){
     }
 
     return(
-        <RegistrationContext.Provider value={{firstPart, secondPart, insertData}}>
+        <RegistrationContext.Provider value={{firstPart, secondPart, insertData, file, setFile}}>
             {children}
         </RegistrationContext.Provider>
     )

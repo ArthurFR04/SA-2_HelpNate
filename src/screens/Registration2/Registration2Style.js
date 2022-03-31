@@ -52,32 +52,41 @@ export default StyleSheet.create({
         borderRadius: 10,
     },
     textUser: {
+        height: "10%",
         marginBottom: 5,
         color: '#3c3c3c'
     },
     fotoUser: {
+        height: "85%",
+        padding: "3%",
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
     },
     addPicture: {
+        width: "50%",
+        height: "100%",
         display: 'flex',
+        justifyContent: "center",
         alignItems: 'center',
         marginRight: '10%',
-        padding: '6%',
         borderWidth: 1,
         borderStyle: 'dashed',
     },
     plus: {
+        height: "25%",
         color: '#3c3c3c',
         fontSize: 30
     },
     textAddImage: {
+        height: "25%",
+        paddingTop: "5%",
         color: '#3c3c3c',
         fontSize: 12
     },
     styleImage: {
+        height: "25%",
         color: '#3c3c3c',
         fontSize: 8
     },
