@@ -48,9 +48,14 @@ export default StyleSheet.create({
     },
     arrow:{
         position: "absolute",
-        top: "83%",
+        top: "80%",
         left: "50%",
-        transform: [{translateX: - (Dimensions.get('window').width) / 10}],
+        transform: [
+            // Transform the origin down
+            { translateX: +150 / 1 },
+            // Transform the origin back up
+            { translateY: -90 / 2 },
+        ],
         width: 70,
         height: 70,
         display: "flex",

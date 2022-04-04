@@ -103,51 +103,12 @@ export default StyleSheet.create({
     arrow: {
         justifyContent: 'center',
         alignItems: 'center',
-    },
-
-    butons: {
-        display: 'flex',
-        alignItems: 'flex-end',
-        justifyContent: 'center',
-        flexDirection: 'row',
-        marginTop: '7%',
-    },
-
-    googlee: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#f2bc1b',
-        marginRight: '10%',
-        width: 70,
-        height: 70,
-        borderRadius: 50,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.23,
-        shadowRadius: 2.62,
-        elevation: 4,
-    },
-
-    facebookk: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#f2bc1b',
-        width: 70,
-        height: 70,
-        borderRadius: 50,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.23,
-        shadowRadius: 2.62,
-        elevation: 4,
+        transform: [
+            // Transform the origin down
+            { translateX: 25 / 1 },
+            // Transform the origin back up
+            { translateY: 0 / 1 },
+        ],
     },
 
 });

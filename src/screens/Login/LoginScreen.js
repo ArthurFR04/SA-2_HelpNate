@@ -22,23 +22,11 @@ export const LoginScreen = () =>{
         <View className="conteudo-2" style={style.conteudo2}>
 
           <View style={style.arrowG}>
-            <TouchableOpacity style={style.arrow}>
-              <Link to={{ screen: 'Registration' }}>
+            <Link to={{ screen: 'Registration' }}>
+              <TouchableOpacity style={style.arrow}>
                 <FontAwesome name="long-arrow-up" size={54} color="#3c3c3c" />
-              </Link>
-            </TouchableOpacity>
-          </View>
-          <View className="butonss" style={style.butons}>
-            <View style={style.googlee}>
-              <TouchableOpacity>
-                <AntDesign name="google" size={50} color="#3c3c3c" />
               </TouchableOpacity>
-            </View>
-            <View style={style.facebookk}>
-              <TouchableOpacity>
-                <FontAwesome name="facebook-f" size={50} color="#3c3c3c" />
-              </TouchableOpacity>
-            </View>
+            </Link>
           </View>
         </View>
       </LinearGradient>
