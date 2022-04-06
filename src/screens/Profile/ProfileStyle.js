@@ -28,5 +28,22 @@ export default StyleSheet.create({
         position: 'absolute',
         top: dimensoes.height/7.5,
         left: dimensoes.width/20
+    },
+    userInformation: {
+        display:'flex',
+        alignItems:'flex-start',
+        width:'50%',
+        marginLeft:'40%',
+        padding:'2%',
+
+
+
+        backgroundColor:'#3c3c3c'
+    },
+
+    userDescription: {
+        display:'flex',
+        marginLeft:'5%',
+        marginTop:'15%'
     }
 })
