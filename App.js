@@ -32,17 +32,17 @@ export default function App(){
       <SafeAreaView edges={"top"} style={{flex: 1, backgroundColor: "#e3b014"}}>
         <ContextProvider>
           <NavigationContainer>
-            <Drawer.Navigator initialRouteName="Feed">
-              <Drawer.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
-              <Drawer.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false, drawerItemStyle: { display: "none" }}} />
-              <Drawer.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
-              <Drawer.Screen name="Profile" component={Stack_Profile} options={{headerShown: false}} />
-              <Drawer.Screen name="Feed" component={Stack_Feed} options={{headerShown: false}} />
-              <Drawer.Screen name="AllChats" component={Stack_AllChats} options={{headerShown: false}} />
-              <Drawer.Screen name="IndividualChat" component={Stack_IndividualChat} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
-              <Drawer.Screen name="NewPost" component={Stack_NewPost} options={{headerShown: false}} />
-              <Drawer.Screen name="IndividualPost" component={Stack_IndividualPost} options={{headerShown: false, drawerItemStyle: { display: "none"}}}/>
-            </Drawer.Navigator>
+            <Stack.Navigator initialRouteName="Feed">
+              <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
+              <Stack.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false, drawerItemStyle: { display: "none" }}} />
+              <Stack.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
+              <Stack.Screen name="Profile" component={Stack_Profile} options={{headerShown: false}} />
+              <Stack.Screen name="Feed" component={Stack_Feed} options={{headerShown: false}} />
+              <Stack.Screen name="AllChats" component={Stack_AllChats} options={{headerShown: false}} />
+              <Stack.Screen name="IndividualChat" component={Stack_IndividualChat} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
+              <Stack.Screen name="NewPost" component={Stack_NewPost} options={{headerShown: false}} />
+              <Stack.Screen name="IndividualPost" component={Stack_IndividualPost} options={{headerShown: false, drawerItemStyle: { display: "none"}}}/>
+            </Stack.Navigator>
           </NavigationContainer>
         </ContextProvider>
       </SafeAreaView>
@@ -53,17 +53,17 @@ export default function App(){
       <SafeAreaView style={{flex: 1, backgroundColor: "#e3b014"}}>
         <ContextProvider>
           <NavigationContainer>
-            <Drawer.Navigator initialRouteName="Feed">
-              <Drawer.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
-              <Drawer.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false, drawerItemStyle: { display: "none" }}} />
-              <Drawer.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
-              <Drawer.Screen name="Profile" component={Stack_Profile} options={{headerShown: false}} />
-              <Drawer.Screen name="Feed" component={Stack_Feed} options={{headerShown: false}} />
-              <Drawer.Screen name="AllChats" component={Stack_AllChats} options={{headerShown: false}} />
-              <Drawer.Screen name="IndividualChat" component={Stack_IndividualChat} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
-              <Drawer.Screen name="NewPost" component={Stack_NewPost} options={{headerShown: false}} />
-              <Drawer.Screen name="IndividualPost" component={Stack_IndividualPost} options={{headerShown: false, drawerItemStyle: { display: "none"}}}/>
-            </Drawer.Navigator>
+            <Stack.Navigator initialRouteName="Feed">
+              <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
+              <Stack.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false, drawerItemStyle: { display: "none" }}} />
+              <Stack.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
+              <Stack.Screen name="Profile" component={Stack_Profile} options={{headerShown: false}} />
+              <Stack.Screen name="Feed" component={Stack_Feed} options={{headerShown: false}} />
+              <Stack.Screen name="AllChats" component={Stack_AllChats} options={{headerShown: false}} />
+              <Stack.Screen name="IndividualChat" component={Stack_IndividualChat} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
+              <Stack.Screen name="NewPost" component={Stack_NewPost} options={{headerShown: false}} />
+              <Stack.Screen name="IndividualPost" component={Stack_IndividualPost} options={{headerShown: false, drawerItemStyle: { display: "none"}}}/>
+            </Stack.Navigator>
           </NavigationContainer>
         </ContextProvider>
       </SafeAreaView>
@@ -73,17 +73,17 @@ export default function App(){
     return (
       <ContextProvider>
         <NavigationContainer>
-          <Drawer.Navigator initialRouteName="Feed">
-            <Drawer.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
-            <Drawer.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false, drawerItemStyle: { display: "none" }}} />
-            <Drawer.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
-            <Drawer.Screen name="Profile" component={Stack_Profile} options={{headerShown: false}} />
-            <Drawer.Screen name="Feed" component={Stack_Feed} options={{headerShown: false}} />
-            <Drawer.Screen name="AllChats" component={Stack_AllChats} options={{headerShown: false}} />
-            <Drawer.Screen name="IndividualChat" component={Stack_IndividualChat} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
-            <Drawer.Screen name="NewPost" component={Stack_NewPost} options={{headerShown: false}} />
-            <Drawer.Screen name="IndividualPost" component={Stack_IndividualPost} options={{headerShown: false, drawerItemStyle: { display: "none"}}}/>
-          </Drawer.Navigator>
+          <Stack.Navigator initialRouteName="Feed">
+            <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
+            <Stack.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false, drawerItemStyle: { display: "none" }}} />
+            <Stack.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
+            <Stack.Screen name="Profile" component={Stack_Profile} options={{headerShown: false}} />
+            <Stack.Screen name="Feed" component={Stack_Feed} options={{headerShown: false}} />
+            <Stack.Screen name="AllChats" component={Stack_AllChats} options={{headerShown: false}} />
+            <Stack.Screen name="IndividualChat" component={Stack_IndividualChat} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
+            <Stack.Screen name="NewPost" component={Stack_NewPost} options={{headerShown: false}} />
+            <Stack.Screen name="IndividualPost" component={Stack_IndividualPost} options={{headerShown: false, drawerItemStyle: { display: "none"}}}/>
+          </Stack.Navigator>
         </NavigationContainer>
       </ContextProvider>
     );

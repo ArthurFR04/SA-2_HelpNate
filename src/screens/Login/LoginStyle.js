@@ -104,8 +104,8 @@ export default StyleSheet.create({
     arrow:{
         position: "absolute",
         bottom: "83%",
-        left: "50%",
-        // transform: [{translateX: "-37.5%"}],                   tava dando alguns warnings
+        left: "40%",
+        // transform: [{translateX: "37%"}],                  // tava dando alguns warnings
         width: 70,
         height: 70,
         display: "flex",
@@ -126,7 +126,7 @@ export default StyleSheet.create({
         position: "absolute",
         bottom: "12.5%",
         left: "25%",
-        // transform: [{translateX: "-106.5%"}],                        tava dando alguns warnings
+        // transform: [{translateX: "106%"}],                    //    tava dando alguns warnings
         width: "100%",
         height: "65%",
         borderRadius: Dimensions.get('window').width / 2,
@@ -137,12 +137,19 @@ export default StyleSheet.create({
 
     imageLogo:{
         flex: 1,
-        resizeMode: 'contain'
+        resizeMode: 'contain',
+        marginRight: "50%",
+        marginTop: "10%",
+        width: "100%",
+        height: "100%",
     },
 
     textRegistration:{
         fontSize: 14,
-        marginBottom: "2%"
+        marginBottom: "2%",
+        position: "absolute",
+        right: "45%",
+        bottom: "80%",
     }
 
 });

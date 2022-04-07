@@ -24,7 +24,7 @@ export const ProfileScreen = () =>{
                 <Text style={styles.UserInfos}>ismael.silva@gmail.com</Text>
                 <Text style={styles.UserInfos}>Eu sou um programador e necessito de um pc bala, que nem o Battistella.</Text>
                 <View>
-                    <Text style={styles.UserDate}>Des de: 1999</Text>
+                    <Text style={styles.UserDate}>Desde: 1999</Text>
                 </View>
             </View>
             <View style={styles.UserOptions}>
