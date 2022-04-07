@@ -25,8 +25,14 @@ export const Stack_Registration2 = () => (
         headerTitle: () => (<Text></Text>),
         headerLeft: () => (
           <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", paddingLeft: 20}}>
-            <FontAwesome name="bars" style={{ marginRight: 12, color: "#3c3c3c" }} size={32} onPress={() =>navigation.dispatch(DrawerActions.toggleDrawer())} />
-            <Text style={{color: "#3c3c3c", fontSize: 24 }}>Registration</Text>
+            <Link to={{ screen: 'Feed' }}>
+                  <FontAwesome name="home" style={{ marginRight: 8, color: "#3c3c3c" }} size={40}/>
+                </Link>
+            {/* <Text style={{color: "#3c3c3c", fontSize: 24 }}> Registration</Text> */}
+            <View style={{display: "flex", flexDirection: "row", alignItems: "center", marginLeft: "30%"}}>
+                  <Text style={{color: "#3c3c3c", fontSize: 30, fontWeight: 'bold' }}>Help</Text>
+                  <Text style={{color: "#fff", fontSize: 30, fontWeight: 'bold'}}>Nate</Text>
+                </View>
           </View>
         )
       })} />
@@ -41,9 +47,9 @@ export const Stack_Profile = () => (
         headerLeft: () => (
             <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", paddingLeft: 20}}>
                 <Link to={{ screen: 'Feed' }}>
-                  <FontAwesome name="home" style={{ marginRight: 8, color: "#3c3c3c" }} size={40} onPress={() =>navigation.dispatch(DrawerActions.toggleDrawer())} />
+                  <FontAwesome name="home" style={{ marginRight: 8, color: "#3c3c3c" }} size={40}/>
                 </Link>
-                <Text style={{color: "#3c3c3c", fontSize: 24 }}>Perfil</Text>
+                <Text style={{color: "#3c3c3c", fontSize: 30, fontWeight: "bold", marginLeft: "42%" }}>Perfil</Text>
             </View>
         ),
         headerRight: () => (
@@ -73,6 +79,10 @@ export const Stack_Feed = () => (
         ),
         headerRight: () => (
             <View style={{display: "flex", flexDirection: "row", alignItems: "center", marginRight: 10}}>
+              <Link to={{ screen: 'AllChats' }}>
+                  <Ionicons name="send" style={{ marginRight: 10, color: "#3c3c3c" }} size={34} />
+                </Link>
+                <Text style={{opacity: 0}}>...</Text>
                 <Link to={{ screen: 'Profile' }}>
                   <Ionicons name="person-circle-outline" style={{ marginRight: 10, color: "#3c3c3c" }} size={34} />
                 </Link>
@@ -94,9 +104,9 @@ export const Stack_AllChats = () => (
                 <Text style={{color: "#3c3c3c", fontSize: 22 }}>Olá, Ismael Silva</Text>
             </View>
         ),
-        headerRight: () => (
-            <Ionicons name="ios-search-circle-outline" style={{ marginRight: 12, color: "#3c3c3c" }} size={45} />
-        ),
+        // headerRight: () => (
+        //     <Ionicons name="ios-search-circle-outline" style={{ marginRight: 12, color: "#3c3c3c" }} size={45} />
+        // ),
       })} />
     </Stack.Navigator>
   );
@@ -130,7 +140,10 @@ export const Stack_NewPost = () => (
                 <Link to={{ screen: 'Feed' }}>
                   <FontAwesome name="home" style={{ marginRight: 8, color: "#3c3c3c" }} size={40}/>
                 </Link>
-                <Text style={{color: "#3c3c3c", fontSize: 22, alignItems: "center", justifyContent: "center", marginLeft: "28%" }}>Nova doação</Text>
+                <View style={{display: "flex", flexDirection: "row", alignItems: "center", marginLeft: "30%"}}>
+                  <Text style={{color: "#3c3c3c", fontSize: 30, fontWeight: 'bold' }}>Help</Text>
+                  <Text style={{color: "#fff", fontSize: 30, fontWeight: 'bold'}}>Nate</Text>
+                </View>
             </View>
         ),
         headerRight: () => (

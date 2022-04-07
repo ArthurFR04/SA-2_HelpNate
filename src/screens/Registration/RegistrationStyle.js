@@ -2,7 +2,13 @@ import { StyleSheet, Dimensions, Platform } from "react-native";
 
 export default StyleSheet.create({
     container:{
-        flex: 1
+        flex: 1,
+        height: Dimensions.get('window').height,
+        width: Dimensions.get('window').width,
+    },
+    container2:{
+        height: Dimensions.get('window').height,
+        width: Dimensions.get('window').width,
     },
     containerCircle:{
         height: "30%",
@@ -99,7 +105,7 @@ export default StyleSheet.create({
     },
     containerInput:{
         width: "100%",
-        height: "75%",
+        height: "80%",
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
