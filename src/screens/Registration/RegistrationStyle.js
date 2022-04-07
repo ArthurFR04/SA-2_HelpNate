@@ -50,7 +50,7 @@ export default StyleSheet.create({
         position: "absolute",
         top: "83%",
         left: "50%",
-        transform: [{translateX: - (Dimensions.get('window').width) / 10}],
+        transform: [{translateX: "-37.5%"}],
         width: 70,
         height: 70,
         display: "flex",
@@ -70,8 +70,9 @@ export default StyleSheet.create({
     logoCircle:{
         position: "absolute",
         top: "7.5%",
-        left: "31%",
-        width: "35%",
+        left: "25%",
+        transform: [{translateX: "-106.5%"}],
+        width: "100%",
         height: "65%",
         borderRadius: Dimensions.get('window').width / 2,
         display: "flex",
@@ -114,5 +115,11 @@ export default StyleSheet.create({
         fontSize: 23,
         fontWeight: "700",
         color: "#F2F2F2",
+    },
+    textRegistration:{
+        fontSize: 14,
+        color: "#f9f9f9",
+        fontWeight: "bold",
+        marginTop: "4%"
     }
 })

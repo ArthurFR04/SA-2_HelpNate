@@ -14,6 +14,7 @@ const CustomInput = ({ control, name, rules = {}, placeholder, secureTextEntry})
             value={ value }
             onChangeText={ onChange }
             onBlur={ onBlur }
+            keyboardType={name === 'nascimento' || name === 'telefone' ? "numbers-and-punctuation" : "default"}
             placeholder={ placeholder }
             style={[style.input,{ borderColor: error ? 'red' : 'transparent'}, name === 'biografia' ? {height: 150}: {height: 45}]}
             secureTextEntry={ secureTextEntry }

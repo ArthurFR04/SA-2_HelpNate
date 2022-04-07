@@ -4,7 +4,7 @@ import { Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { navigationRef } from './rootNavigation';
 
-import RegistrationInfoProvider from './src/components/context/RegistrationContext';
+import ContextProvider from './src/components/context/Context';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -18,74 +18,71 @@ import {
   Stack_AllChats, 
   Stack_IndividualChat,
   Stack_NewPost, 
-  Stack_IndividualPost, 
-  Stack_Search } from './AppStackRoutes';
+  Stack_IndividualPost
+} from './AppStackRoutes';
 
 const Drawer = createDrawerNavigator();
 
 export default function App(){
   if (Platform.OS === "ios") {
     return (
-      <SafeAreaView edges={['top']} style={{flex: 1, backgroundColor: "#e3b014"}}>
-        <RegistrationInfoProvider>
+      <SafeAreaView edges={"top"} style={{flex: 1, backgroundColor: "#e3b014"}}>
+        <ContextProvider>
           <NavigationContainer>
-            <Drawer.Navigator initialRouteName="Registration">
+            <Drawer.Navigator initialRouteName="Login">
               <Drawer.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
-              <Drawer.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false}} />
-              <Drawer.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false}} />
+              <Drawer.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false, drawerItemStyle: { display: "none" }}} />
+              <Drawer.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
               <Drawer.Screen name="Profile" component={Stack_Profile} options={{headerShown: false}} />
               <Drawer.Screen name="Feed" component={Stack_Feed} options={{headerShown: false}} />
               <Drawer.Screen name="AllChats" component={Stack_AllChats} options={{headerShown: false}} />
-              <Drawer.Screen name="IndividualChat" component={Stack_IndividualChat} options={{headerShown: false}} />
+              <Drawer.Screen name="IndividualChat" component={Stack_IndividualChat} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
               <Drawer.Screen name="NewPost" component={Stack_NewPost} options={{headerShown: false}} />
-              <Drawer.Screen name="IndividualPost" component={Stack_IndividualPost} options={{headerShown: false}} />
-              <Drawer.Screen name="Search" component={Stack_Search} options={{headerShown: false}} />
+              <Drawer.Screen name="IndividualPost" component={Stack_IndividualPost} options={{headerShown: false, drawerItemStyle: { display: "none"}}}/>
             </Drawer.Navigator>
           </NavigationContainer>
-        </RegistrationInfoProvider>
+        </ContextProvider>
       </SafeAreaView>
     );
   }
   else if(Platform.OS === "android") {
     return (
       <SafeAreaView style={{flex: 1, backgroundColor: "#e3b014"}}>
-        <RegistrationInfoProvider>
+        <ContextProvider>
           <NavigationContainer>
-            <Drawer.Navigator initialRouteName="Registration">
+            <Drawer.Navigator initialRouteName="Feed">
               <Drawer.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
-              <Drawer.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false}} />
-              <Drawer.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false}} />
+              <Drawer.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false, drawerItemStyle: { display: "none" }}} />
+              <Drawer.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
               <Drawer.Screen name="Profile" component={Stack_Profile} options={{headerShown: false}} />
               <Drawer.Screen name="Feed" component={Stack_Feed} options={{headerShown: false}} />
               <Drawer.Screen name="AllChats" component={Stack_AllChats} options={{headerShown: false}} />
-              <Drawer.Screen name="IndividualChat" component={Stack_IndividualChat} options={{headerShown: false}} />
+              <Drawer.Screen name="IndividualChat" component={Stack_IndividualChat} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
               <Drawer.Screen name="NewPost" component={Stack_NewPost} options={{headerShown: false}} />
-              <Drawer.Screen name="IndividualPost" component={Stack_IndividualPost} options={{headerShown: false}} />
-              <Drawer.Screen name="Search" component={Stack_Search} options={{headerShown: false}} />
+              <Drawer.Screen name="IndividualPost" component={Stack_IndividualPost} options={{headerShown: false, drawerItemStyle: { display: "none"}}}/>
             </Drawer.Navigator>
           </NavigationContainer>
-        </RegistrationInfoProvider>
+        </ContextProvider>
       </SafeAreaView>
     );
   }
   else {
     return (
-      <RegistrationInfoProvider>
+      <ContextProvider>
         <NavigationContainer>
-          <Drawer.Navigator initialRouteName="Registration2">
+          <Drawer.Navigator initialRouteName="Login">
             <Drawer.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
-            <Drawer.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false}} />
-            <Drawer.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false}} />
+            <Drawer.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false, drawerItemStyle: { display: "none" }}} />
+            <Drawer.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
             <Drawer.Screen name="Profile" component={Stack_Profile} options={{headerShown: false}} />
             <Drawer.Screen name="Feed" component={Stack_Feed} options={{headerShown: false}} />
             <Drawer.Screen name="AllChats" component={Stack_AllChats} options={{headerShown: false}} />
-            <Drawer.Screen name="IndividualChat" component={Stack_IndividualChat} options={{headerShown: false}} />
+            <Drawer.Screen name="IndividualChat" component={Stack_IndividualChat} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />
             <Drawer.Screen name="NewPost" component={Stack_NewPost} options={{headerShown: false}} />
-            <Drawer.Screen name="IndividualPost" component={Stack_IndividualPost} options={{headerShown: false}} />
-            <Drawer.Screen name="Search" component={Stack_Search} options={{headerShown: false}} />
+            <Drawer.Screen name="IndividualPost" component={Stack_IndividualPost} options={{headerShown: false, drawerItemStyle: { display: "none"}}}/>
           </Drawer.Navigator>
         </NavigationContainer>
-      </RegistrationInfoProvider>
+      </ContextProvider>
     );
   }
 }

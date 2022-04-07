@@ -1,32 +1,46 @@
 import React, {createContext, useState} from 'react';
+import { Platform } from 'react-native';
 
-export const RegistrationContext = createContext({})
+export const Context = createContext({})
 
-function RegistrationInfoProvider({children}){
+function ContextProvider({children}){
+
+    // REGISTRATION
 
     const [registrationInfo, setregistrationInfo] = useState({
-        nome: "",
-        sobrenome: "",
-        nascimento: "",
-        email: "",
-        senha: "",
-        telefone: "",
-        cep: "",
-        cidade: "",
-        estado: "",
-        biografia: ''
+        nome: null,
+        sobrenome: null,
+        nascimento: null,
+        email: null,
+        senha: null,
+        telefone: null,
+        cep: null,
+        cidade: null,
+        estado: null,
+        biografia: null
     });
-    const[file, setFile] = useState(null);
+    
+    const[file, setFile] = useState();
 
     async function insertImageProfile(id){
         try {
             const data = new FormData();
-            data.append('id', id[0].idusuario)
-            data.append('img', {uri: file.uri, type: 'image', name: 'imagemDePerfil'}); 
-            await fetch("http://localhost:5000/imagemPerfil",{
-                method: "POST",  
-                body: data
-            });
+            data.append('id', id[0].idusuario);
+            if(Platform.OS === "web"){
+                data.append('img', file); 
+                await fetch("https://helpnate.herokuapp.com/imagemPerfil",{
+                    method: 'POST',
+                    body: data
+                });
+            }
+            else{
+                data.append('img',{name: 'teste.jpg' , type: "image/jpg", uri: file.uri}); 
+                await fetch("https://helpnate.herokuapp.com/imagemPerfil",{
+                    method: 'POST',
+                    header: {"Content-Type": "multipart/form-data", Accept: "application/json"},
+                    body: data
+                });
+            }
         } catch (error) {
             console.log(error.message);
         }
@@ -34,8 +48,8 @@ function RegistrationInfoProvider({children}){
 
     async function insertData(){
         try {
-            if(registrationInfo.estado != ""){
-                let newUser = await fetch("http://localhost:5000/usuarioCompleto",{
+            if(registrationInfo.estado != null){
+                let newUser = await fetch("https://helpnate.herokuapp.com/usuarioCompleto",{
                     method: "POST",
                     headers: { "Content-Type":"application/json" },
                     body: JSON.stringify({
@@ -55,7 +69,7 @@ function RegistrationInfoProvider({children}){
                 insertImageProfile(newUserInfo)
             }
             else{
-                fetch("http://localhost:5000/usuarioIncompleto",{
+                fetch("https://helpnate.herokuapp.com/usuarioIncompleto",{
                     method: "POST",
                     headers: { "Content-Type":"application/json" },
                     body: JSON.stringify({
@@ -94,11 +108,35 @@ function RegistrationInfoProvider({children}){
         insertData()
     }
 
+
+    const[status, setstatus] = useState(false)
+
+    const[verify, setverify] = useState(false)
+    const[pos, setpos] = useState()
+    
+    const verifyLogin = async(data) => {
+        const response = await fetch("https://helpnate.herokuapp.com/usuarios")
+        .then(function(res){ return res.json()})
+        .then(function(response){return response})
+
+
+        await response.map((element, index) => {
+        if(data.email === element.email && data.senha === element.senha){
+            let status = verify
+            status = true
+            let indexx = index
+            setverify(status)
+            setpos(indexx)
+        }
+        })
+    }
+
+
     return(
-        <RegistrationContext.Provider value={{firstPart, secondPart, insertData, file, setFile}}>
+        <Context.Provider value={{firstPart, secondPart, insertData, file, setFile, verify, pos, verifyLogin}}>
             {children}
-        </RegistrationContext.Provider>
+        </Context.Provider>
     )
 }
 
-export default RegistrationInfoProvider;
+export default ContextProvider;

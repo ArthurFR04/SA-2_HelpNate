@@ -5,7 +5,9 @@ export default StyleSheet.create({
         height: 65,
         paddingLeft: 10,
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        borderBottomWidth: 1,
+        borderBottomColor: "#C3C3C3"
     },
     filter:{
         minHeight: "70%",

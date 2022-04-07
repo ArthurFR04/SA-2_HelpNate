@@ -1,19 +1,16 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 
 export default StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
     },
     conteudo: {
-        flex: 1,
+        height: "75%",
         alignItems: 'center',
         justifyContent: 'center',
     },
     text: {
         fontSize: 65,
-        marginBottom: '20%',
         color: '#3c3c3c',
     },
     input: {
@@ -21,7 +18,7 @@ export default StyleSheet.create({
         width: 280,
         height: 55,
         padding: '2%',
-        marginBottom: 45,
+        marginTop: 45,
         color: '#3c3c3c',
         fontSize: 20,
         borderRadius: 10,
@@ -32,6 +29,13 @@ export default StyleSheet.create({
         shadowOpacity: 0.23,
         shadowRadius: 3.62,
         elevation: 4,
+    },
+    inputs:{
+        width: '100%',
+        height: "25%",
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        marginTop: '5%',
     },
     btnLogar: {
         backgroundColor: '#fff',
@@ -48,106 +52,97 @@ export default StyleSheet.create({
         shadowOpacity: 0.23,
         shadowRadius: 2.62,
         elevation: 8,
+        marginTop: "10%"
     },
     textbtn: {
         fontSize: 24,
         color: '#3c3c3c',
     },
 
-    conteudo2: {
-        backgroundColor: 'white',
-        width: 500,
-        height: '32%',
-        //borderRadius: 200,
-        borderTopEndRadius: Dimensions.get('window').width / 2,
-        borderTopStartRadius: Dimensions.get('window').width / 2,
-        transform: [
-            // Transform the origin down
-            { translateY: 200 / 2 },
-            // Transform the origin back up
-            { translateY: -100 / 2 },
-        ],
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.23,
-        shadowRadius: 5.62,
-        elevation: 8,
+    containerCircle:{
+        width: "100%",
+        height: "25%",
     },
-
-    arrowG: {
-        justifyContent: 'center',
-        alignSelf: 'center',
-        backgroundColor: 'white',
-        height: 75,
-        width: 75,
-        borderRadius: 50,
-        transform: [
-            // Transform the origin down
-            { translateY: 0 / 2 },
-            // Transform the origin back up
-            { translateY: -60 / 2 },
-        ],
-        shadowColor: "#000",
+    circle:{
+        position: "relative",
+        height: "100%",
+        backgroundColor: 'transparent',
+        shadowColor: '#000',
+        shadowOffset: {
+        width: 0,
+        height: -3,
+        },
+        shadowOpacity: 0.5,
+        shadowRadius: 2,
+        elevation: 20,
+        ...Platform.select({
+            android:{
+                borderTopEndRadius: Dimensions.get('window').width / 2.6,
+                borderTopStartRadius: Dimensions.get('window').width / 2.6
+            },
+            ios:{
+                borderTopEndRadius: Dimensions.get('window').width / 1.8,
+                borderTopStartRadius: Dimensions.get('window').width / 1.8
+            }
+        })
+    },
+    circleFormat:{
+        position: "relative",
+        height: "100%",
+        backgroundColor: "#FFF",
+        ...Platform.select({
+            android:{
+                borderTopEndRadius: Dimensions.get('window').width / 2.6,
+                borderTopStartRadius: Dimensions.get('window').width / 2.6
+            },
+            ios:{
+                borderTopEndRadius: Dimensions.get('window').width / 1.8,
+                borderTopStartRadius: Dimensions.get('window').width / 1.8
+            }
+        })
+    },
+    arrow:{
+        position: "absolute",
+        bottom: "83%",
+        left: "50%",
+        transform: [{translateX: "-37.5%"}],
+        width: 70,
+        height: 70,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#fff",
+        borderRadius: Dimensions.get('window').width,
+        shadowColor: '#000',
         shadowOffset: {
             width: 0,
             height: 0,
         },
-        shadowOpacity: 0.23,
-        shadowRadius: 5.62,
-        elevation: 4,
+        shadowOpacity: 0.7,
+        shadowRadius: 2,
+        elevation: 10,
+    },
+    logoCircle:{
+        position: "absolute",
+        bottom: "12.5%",
+        left: "25%",
+        transform: [{translateX: "-106.5%"}],
+        width: "100%",
+        height: "65%",
+        borderRadius: Dimensions.get('window').width / 2,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
     },
 
-    arrow: {
-        justifyContent: 'center',
-        alignItems: 'center',
+    imageLogo:{
+        flex: 1,
+        resizeMode: 'contain'
     },
 
-    butons: {
-        display: 'flex',
-        alignItems: 'flex-end',
-        justifyContent: 'center',
-        flexDirection: 'row',
-        marginTop: '7%',
-    },
-
-    googlee: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#f2bc1b',
-        marginRight: '10%',
-        width: 70,
-        height: 70,
-        borderRadius: 50,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.23,
-        shadowRadius: 2.62,
-        elevation: 4,
-    },
-
-    facebookk: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#f2bc1b',
-        width: 70,
-        height: 70,
-        borderRadius: 50,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.23,
-        shadowRadius: 2.62,
-        elevation: 4,
-    },
+    textRegistration:{
+        fontSize: 14,
+        marginBottom: "2%"
+    }
 
 });
