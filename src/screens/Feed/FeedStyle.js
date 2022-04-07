@@ -58,7 +58,8 @@ export default StyleSheet.create({
         fontSize: 36,
         fontWeight: "600",
         paddingLeft: "7.5%",
-        marginBottom: "2%"
+        marginBottom: "2%",
+        marginLeft: "25%"
     },
     cardPost:{
         width: "95%",

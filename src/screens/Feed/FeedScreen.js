@@ -38,19 +38,19 @@ export const FeedScreen = () =>{
         }
     ]
 
-    const Doar = () => {
-        return <TouchableOpacity style={[style.button, {borderRightWidth: 1} , active == true ? {width: "100%"} : {width: "50%"}]}
-                onPress={() => { if(active === false){setActive(!active, setDesactive(!desactive))}}}>
-                    <Text style={style.textButton}>Quero doar</Text>
-                </TouchableOpacity>
-    }
+    // const Doar = () => {
+    //     return <TouchableOpacity style={[style.button, {borderRightWidth: 1} , active == true ? {width: "100%"} : {width: "50%"}]}
+    //             onPress={() => { if(active === false){setActive(!active, setDesactive(!desactive))}}}>
+    //                 <Text style={style.textButton}>Quero doar</Text>
+    //             </TouchableOpacity>
+    // }
 
-    const PrecisoDeAlgo = () => {
-        return <TouchableOpacity style={[style.button, {borderLeftWidth: 1} ,desactive == true ? {width: "100%"} : {width: "50%"}]} 
-                onPress={() => { if(active === true ){setActive(!active, setDesactive(!desactive))}}}>
-                    <Text style={style.textButton}>Preciso de algo</Text>
-                </TouchableOpacity>
-    }
+    // const PrecisoDeAlgo = () => {
+    //     return <TouchableOpacity style={[style.button, {borderLeftWidth: 1} ,desactive == true ? {width: "100%"} : {width: "50%"}]} 
+    //             onPress={() => { if(active === true ){setActive(!active, setDesactive(!desactive))}}}>
+    //                 <Text style={style.textButton}>Preciso de algo</Text>
+    //             </TouchableOpacity>
+    // }
     
     const CardStructure = (index) => { 
         return (
@@ -143,23 +143,8 @@ export const FeedScreen = () =>{
                         </TouchableOpacity>
                     </ScrollView>
                 </View>
-                { active ? (
-                <View style={style.containerButtons}>   
-                    <InsetShadow containerStyle={{width: "50%"}} shadowRadius={4} right={false} left={false} bottom={false}>
-                        <Doar></Doar>
-                    </InsetShadow>
-                    <PrecisoDeAlgo></PrecisoDeAlgo>
-                </View>
-                ): null}
-                { desactive ? (
-                <View style={style.containerButtons}>                
-                    <Doar></Doar>
-                    <InsetShadow containerStyle={{width: "50%"}} shadowRadius={4} right={false} left={false} bottom={false}>
-                        <PrecisoDeAlgo></PrecisoDeAlgo>
-                    </InsetShadow>
-                </View>
-                ): null}
-                <Text style={style.titlePosts}>Postagens</Text>
+
+                {/* <Text style={style.titlePosts}>Doações</Text> */}
                 {teste.map((Element, index) => {
                     return (CardStructure(index))
                 })}
