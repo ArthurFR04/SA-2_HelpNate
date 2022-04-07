@@ -48,9 +48,18 @@ export default StyleSheet.create({
     },
     arrow:{
         position: "absolute",
-        top: "83%",
+        top: "80%",
         left: "50%",
+<<<<<<< HEAD
         transform: [{translateX: "-37.5%"}],
+=======
+        transform: [
+            // Transform the origin down
+            { translateX: +150 / 1 },
+            // Transform the origin back up
+            { translateY: -90 / 2 },
+        ],
+>>>>>>> bf8988c17289bf95e78b99e76e44412c0a56abd4
         width: 70,
         height: 70,
         display: "flex",

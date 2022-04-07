@@ -8,7 +8,8 @@ import { AllChatsScreen } from './src/screens/Chats/ChatsScreen';
 import { IndividualChatScreen } from './src/screens/IndividualChat/IndividualChatScreen';
 import { NewPostScreen } from './src/screens/NewPost/NewPostScreen';
 import { IndividualPostScreen } from './src/screens/IndividualPost/IndividualPostScreen';
-import { SearchScreen } from './src/screens/Search/SearchScreen'
+import { SearchScreen } from './src/screens/Search/SearchScreen';
+import { Link } from '@react-navigation/native';
 
 import {  DrawerActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -39,15 +40,15 @@ export const Stack_Profile = () => (
         headerTitle: () => (<Text></Text>),
         headerLeft: () => (
             <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", paddingLeft: 20}}>
-                <FontAwesome name="bars" style={{ marginRight: 8, color: "#3c3c3c" }} size={32} onPress={() =>navigation.dispatch(DrawerActions.toggleDrawer())} />
-                <Text style={{color: "#3c3c3c", fontSize: 24 }}>Profile</Text>
+                <Link to={{ screen: 'Feed' }}>
+                  <FontAwesome name="home" style={{ marginRight: 8, color: "#3c3c3c" }} size={40} onPress={() =>navigation.dispatch(DrawerActions.toggleDrawer())} />
+                </Link>
+                <Text style={{color: "#3c3c3c", fontSize: 24 }}>Perfil</Text>
             </View>
         ),
         headerRight: () => (
             <View style={{display: "flex", flexDirection: "row", alignItems: "center" }}>
-                <FontAwesome5 name="search" style={{ marginRight: 12, color: "#3c3c3c" }} size={28} />
-                <MaterialCommunityIcons name="package-variant" style={{ marginRight: 12, color: "#3c3c3c" }} size={34} />
-                <Ionicons name="person-circle-outline" style={{ marginRight: 12, color: "#3c3c3c" }} size={34} />
+
             </View>
         ),
       })} />
@@ -60,15 +61,22 @@ export const Stack_Feed = () => (
         headerStyle: { backgroundColor: "#F2BC1B", height: 50},
         headerTitle: () => (<Text></Text>),
         headerLeft: () => (
-            <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", paddingLeft: 10}}>
-                <FontAwesome name="bars" style={{ marginRight: 8, color: "#3c3c3c" }} size={32} onPress={() =>navigation.dispatch(DrawerActions.toggleDrawer())} />
-                <Text style={{color: "#3c3c3c", fontSize: 24 }}>Feed</Text>
+            <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", width: Dimensions.get('window').width, position: "absolute", left:0}}>
+              <Link to={{ screen: 'NewPost' }} style={{position: 'absolute', left: "4%"}}>
+                <FontAwesome name="plus-circle" style={{ color: "#3c3c3c"}} size={32}/>
+              </Link>
+                <View style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
+                  <Text style={{color: "#3c3c3c", fontSize: 30, fontWeight: 'bold' }}>Help</Text>
+                  <Text style={{color: "#fff", fontSize: 30, fontWeight: 'bold'}}>Nate</Text>
+                </View>
             </View>
         ),
         headerRight: () => (
-            <View style={{display: "flex", flexDirection: "row", alignItems: "center" }}>
-                <MaterialCommunityIcons name="package-variant" style={{ marginRight: 12, color: "#3c3c3c" }} size={34} />
-                <Ionicons name="person-circle-outline" style={{ marginRight: 12, color: "#3c3c3c" }} size={34} />
+            <View style={{display: "flex", flexDirection: "row", alignItems: "center", marginRight: 10}}>
+                <Link to={{ screen: 'Profile' }}>
+                  <Ionicons name="person-circle-outline" style={{ marginRight: 10, color: "#3c3c3c" }} size={34} />
+                </Link>
+
             </View>
         ),
       })} />
@@ -120,12 +128,18 @@ export const Stack_NewPost = () => (
         headerTitle: () => (<Text></Text>),
         headerLeft: () => (
             <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", paddingLeft: 20}}>
-                <FontAwesome name="bars" style={{ marginRight: 8, color: "#3c3c3c" }} size={32} onPress={() =>navigation.dispatch(DrawerActions.toggleDrawer())} />
-                <Text style={{color: "#3c3c3c", fontSize: 22 }}>New Post</Text>
+                <Link to={{ screen: 'Feed' }}>
+                  <FontAwesome name="home" style={{ marginRight: 8, color: "#3c3c3c" }} size={40}/>
+                </Link>
+                <Text style={{color: "#3c3c3c", fontSize: 22, alignItems: "center", justifyContent: "center", marginLeft: "28%" }}>Nova doação</Text>
             </View>
         ),
         headerRight: () => (
-          <Ionicons name="person-circle-outline" style={{ marginRight: 12, color: "#3c3c3c" }} size={38} />
+          <View style={{display: "flex", flexDirection: "row", alignItems: "center", marginRight: 10}}>
+            <Link to={{ screen: 'Profile' }}>
+              <Ionicons name="person-circle-outline" style={{ marginRight: 10, color: "#3c3c3c" }} size={38} />
+            </Link>
+          </View>
         ),
       })} />
     </Stack.Navigator>

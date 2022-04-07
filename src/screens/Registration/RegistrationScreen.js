@@ -3,7 +3,7 @@ import {View, Text, Image, TextInput, TouchableOpacity, ScrollView, Button, Touc
 import { Context } from '../../components/context/Context';
 import style from './RegistrationStyle'; 
 import { Link } from '@react-navigation/native';
-import { FontAwesome, AntDesign, FontAwesome5, Entypo} from '@expo/vector-icons';
+import { FontAwesome, AntDesign, FontAwesome5, Entypo } from '@expo/vector-icons';
 import CustomInput from "../../components/customInput/customInput";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigation } from '@react-navigation/native'
@@ -11,14 +11,14 @@ import { useNavigation } from '@react-navigation/native'
 const EMAIL_AUTH = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const DATE_AUTH = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
 
-export const RegistrationScreen = () =>{
+export const RegistrationScreen = () => {
 
     const navigation = useNavigation()
     const { firstPart } = useContext(Context)
     const { control, handleSubmit, formState: {errors}, watch } = useForm();
     const verify = watch('senha')
 
-    const onSubmit = async(data) => {
+    const onSubmit = async (data) => {
         await firstPart(data)
         navigation.navigate("Registration2")
     }

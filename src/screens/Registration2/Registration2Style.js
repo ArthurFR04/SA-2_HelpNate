@@ -5,7 +5,7 @@ export default StyleSheet.create({
         width: '90%',
         height: Dimensions.get('window').height / 1.3,
         alignItems: 'center',
-        paddingBottom: '1%',
+        paddingBottom: '3%',
         marginTop: "5%",
         marginLeft: "auto",
         marginRight: "auto",
