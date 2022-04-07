@@ -1,15 +1,29 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity, ScrollView, Dimensions, Button} from 'react-native';
+import { Context } from '../../components/context/Context';
 import style from './FeedStyle'; 
 import { Link } from '@react-navigation/native';
 import { FontAwesome, AntDesign, FontAwesome5, Entypo, MaterialCommunityIcons, Feather, Ionicons  } from '@expo/vector-icons';
-import InsetShadow from 'react-native-inset-shadow'
+import { useNavigation } from '@react-navigation/native'
 
 export const FeedScreen = () =>{
 
+    const navigation = useNavigation()
+    const { status } = useContext(Context)
     const[active, setActive] = useState(false)
     const[desactive, setDesactive] = useState(true)
     const[arrayValue, setarrayValue] = useState([])
+
+    const verifyStatus = () =>{
+        if(status){
+            navigation.navigate("IndividualPost");
+        }
+        else{
+            navigation.navigate("Login");
+        }
+    }
+
+    console.log(!status);
 
     const teste = [
         {
@@ -37,20 +51,6 @@ export const FeedScreen = () =>{
             ],
         }
     ]
-
-    // const Doar = () => {
-    //     return <TouchableOpacity style={[style.button, {borderRightWidth: 1} , active == true ? {width: "100%"} : {width: "50%"}]}
-    //             onPress={() => { if(active === false){setActive(!active, setDesactive(!desactive))}}}>
-    //                 <Text style={style.textButton}>Quero doar</Text>
-    //             </TouchableOpacity>
-    // }
-
-    // const PrecisoDeAlgo = () => {
-    //     return <TouchableOpacity style={[style.button, {borderLeftWidth: 1} ,desactive == true ? {width: "100%"} : {width: "50%"}]} 
-    //             onPress={() => { if(active === true ){setActive(!active, setDesactive(!desactive))}}}>
-    //                 <Text style={style.textButton}>Preciso de algo</Text>
-    //             </TouchableOpacity>
-    // }
     
     const CardStructure = (index) => { 
         return (
@@ -110,7 +110,7 @@ export const FeedScreen = () =>{
                     </View>
                     <View style={style.optionsPost}>
                         <Text style={style.postDescription}>Doa-se mesa de mármore(em bom estado)</Text>
-                        <TouchableOpacity style={style.postButton}>
+                        <TouchableOpacity style={style.postButton} onPress={verifyStatus}>
                             <Text style={style.textPostButton}>Eu quero!</Text>
                         </TouchableOpacity>
                         <Text style={style.postDate}>09/03 17:10  /  Florianópolis</Text>
@@ -143,8 +143,7 @@ export const FeedScreen = () =>{
                         </TouchableOpacity>
                     </ScrollView>
                 </View>
-
-                {/* <Text style={style.titlePosts}>Doações</Text> */}
+                {/* <Text style={style.titlePosts}>Postagens</Text> */}
                 {teste.map((Element, index) => {
                     return (CardStructure(index))
                 })}

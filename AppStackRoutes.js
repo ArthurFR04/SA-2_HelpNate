@@ -86,6 +86,7 @@ export const Stack_Feed = () => (
                 <Link to={{ screen: 'Profile' }}>
                   <Ionicons name="person-circle-outline" style={{ marginRight: 10, color: "#3c3c3c" }} size={34} />
                 </Link>
+
             </View>
         ),
       })} />
@@ -173,27 +174,4 @@ export const Stack_IndividualPost = () => (
         ),
       })} />
     </Stack.Navigator>
-  );
-  
-export const Stack_Search = () => (
-    <Stack.Navigator>
-      <Stack.Screen name="Search2" component={SearchScreen} options={({navigation}) => ({
-        headerStyle: { backgroundColor: "#F2BC1B", height: 50},
-        headerTitle: () => (
-        <TextInput placeholder='Foguete do Elon Musk' 
-        style={{ width: Dimensions.get('window').width /1.5, height: 30, paddingLeft: 15,  backgroundColor: "white", borderRadius: Dimensions.get('window').width, fontSize: 11}}>
-          </TextInput>
-        ),
-        headerLeft: () => (
-            <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", paddingLeft: 20}}>
-                <FontAwesome name="bars" style={{ marginRight: 8, color: "#3c3c3c" }} size={32} onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())} />
-            </View>
-        ),
-        headerRight: () => (
-            <View style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", paddingRight: 20}}>
-                <FontAwesome5 name="search" style={{ color: "#3c3c3c" }} size={28} />
-            </View>
-        ),
-      })} />
-    </Stack.Navigator>
-  );
+);

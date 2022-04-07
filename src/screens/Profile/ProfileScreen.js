@@ -43,7 +43,10 @@ export const ProfileScreen = () =>{
                 
             </View>
 
-            <Link to={{ screen: 'Feed' }}></Link>
+            <Link to={{ screen: 'Registration' }}>Cadastro</Link>
+            <Link to={{ screen: 'Login' }}>Login</Link>
+            <Link to={{ screen: 'IndividualPost' }}>Post Individual</Link>
+
 
 
         </View>
