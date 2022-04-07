@@ -67,7 +67,7 @@ export default StyleSheet.create({
         width: "95%",
         height: 200,
         padding: 10,
-        marginBottom: "7%",
+        marginTop: "5%",
         marginLeft: "auto",
         marginRight: "auto",
         backgroundColor: "#fff",

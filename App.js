@@ -23,8 +23,8 @@ import {
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App(){
   if (Platform.OS === "ios") {

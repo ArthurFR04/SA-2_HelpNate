@@ -3,7 +3,14 @@ import { StyleSheet, Dimensions, Platform } from "react-native";
 export default StyleSheet.create({
     container:{
         flex: 1,
-        height: Dimensions.get('window').height,
+        ...Platform.select({
+            android:{
+                minHeight: Dimensions.get('window').height,
+            },
+            ios:{
+                height: Dimensions.get('window').height
+            }
+        }),
         width: Dimensions.get('window').width,
     },
     container2:{
@@ -28,8 +35,8 @@ export default StyleSheet.create({
         elevation: 20,
         ...Platform.select({
             android:{
-                borderBottomEndRadius: Dimensions.get('window').width / 2.6,
-                borderBottomStartRadius: Dimensions.get('window').width / 2.6
+                borderBottomEndRadius: Dimensions.get('window').width / 2.5,
+                borderBottomStartRadius: Dimensions.get('window').width / 2.5
             },
             ios:{
                 borderBottomEndRadius: Dimensions.get('window').width / 2,
@@ -43,8 +50,8 @@ export default StyleSheet.create({
         backgroundColor: "#F2BC1B",
         ...Platform.select({
             android:{
-                borderBottomEndRadius: Dimensions.get('window').width / 2.6,
-                borderBottomStartRadius: Dimensions.get('window').width / 2.6
+                borderBottomEndRadius: Dimensions.get('window').width / 2.5,
+                borderBottomStartRadius: Dimensions.get('window').width / 2.5
             },
             ios:{
                 borderBottomEndRadius: Dimensions.get('window').width / 2,
@@ -56,12 +63,14 @@ export default StyleSheet.create({
         position: "absolute",
         top: "80%",
         left: "50%",
-        transform: [
-            // Transform the origin down
-            { translateX: +150 / 1 },
-            // Transform the origin back up
-            { translateY: -90 / 2 },
-        ],
+        ...Platform.select({
+            android:{
+                transform: [{translateX: -Dimensions.get('window').width / 12.5}],                   
+            },
+            ios:{
+                transform: [{translateX: "-35.5%"}],                   
+            }
+        }),   
         width: 70,
         height: 70,
         display: "flex",
@@ -82,7 +91,14 @@ export default StyleSheet.create({
         position: "absolute",
         top: "7.5%",
         left: "25%",
-        transform: [{translateX: "-106.5%"}],
+        ...Platform.select({
+            android:{
+                transform: [{translateX: -Dimensions.get('window').width / 4}],                   
+            },
+            ios:{
+                transform: [{translateX: "-106.5%"}],                   
+            }
+        }),  
         width: "100%",
         height: "65%",
         borderRadius: Dimensions.get('window').width / 2,
@@ -128,7 +144,7 @@ export default StyleSheet.create({
         color: "#F2F2F2",
     },
     textRegistration:{
-        fontSize: 14,
+        fontSize: 13,
         color: "#f9f9f9",
         fontWeight: "bold",
         marginTop: "4%"

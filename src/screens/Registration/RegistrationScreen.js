@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useState } from 'react';
-import {View, Text, Image, TextInput, TouchableOpacity, ScrollView, Button, TouchableWithoutFeedback, Keyboard} from 'react-native';
+import {View, Text, Image, TextInput, TouchableOpacity, ScrollView, Button, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView} from 'react-native';
 import { Context } from '../../components/context/Context';
 import style from './RegistrationStyle'; 
 import { Link } from '@react-navigation/native';
@@ -25,8 +25,8 @@ export const RegistrationScreen = () => {
         
     return(
         <Fragment>
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-                <View style={style.container}>
+            <TouchableWithoutFeedback  onPress={Keyboard.dismiss} accessible={false}>
+                <KeyboardAvoidingView style={style.container} behavior={"position"} keyboardVerticalOffset={40}>
                     <View style={style.containerCircle}>
                         <View style={style.circle}>
                             <View style={style.circleFormat}></View>
@@ -93,8 +93,9 @@ export const RegistrationScreen = () => {
                             <Text style={style.textButton}>Continuar</Text>
                         </TouchableOpacity>
                     </View>
-                </View>
+                </KeyboardAvoidingView>
             </TouchableWithoutFeedback>
+
         </Fragment>
     )   
 }
