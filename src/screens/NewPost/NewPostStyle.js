@@ -1,21 +1,32 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet, Platform } from 'react-native';
 
 export default StyleSheet.create({
 
     container: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 40
+        marginTop: "5%",
+        marginBottom: "10%",
+        padding: "2%",
+        borderRadius: Dimensions.get('window').width / 20,
+        flex: 1,
+        ...Platform.select({
+            android:{
+                minHeight: Dimensions.get('window').height,
+            },
+            ios:{
+                height: Dimensions.get('window').height /1.1
+            }
+        }),
+        width: "95%",
+        marginLeft: "auto",
+        marginRight: "auto",
+        backgroundColor: "#fff"
     },
 
     topPage: {
-        backgroundColor: '#fff',
-        width: '85%',
+        width: '100%',
         height: '35%',
         borderRadius: 15,
         padding: '3%',
-
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -24,6 +35,8 @@ export default StyleSheet.create({
         shadowOpacity: 0.22,
         shadowRadius: 2.22,
         elevation: 3,
+        alignItems: "center",
+        justifyContent: 'space-around'
     },
 
     tituloP: {
@@ -31,11 +44,10 @@ export default StyleSheet.create({
         padding: '2%',
         borderRadius: 8,
         fontSize: 18,
-
     },
 
     descrP: {
-        top: '10%',
+        top: '5%',
         backgroundColor: '#E5E5E5',
         padding: '2%',
         borderRadius: 8,
@@ -45,34 +57,47 @@ export default StyleSheet.create({
     },
 
     categoria: {
-        backgroundColor: '#fff',
-        width: '85%',
-        borderRadius: 8,
-        padding: '3%',
-        top: '2%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: '100%',
+        height: "20%",
+        alignItems: "center",
+    },
 
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.22,
-        shadowRadius: 2.22,
-        elevation: 3,
+    categorias:{
+        paddingTop: "5%",
+        width: "85%",
+        flexDirection: "row",
+        justifyContent: "space-around",
+        borderTopWidth: 1,
+        borderTopColor: "#3c3c3c"
+    },
+
+    titleCategory:{
+        fontWeight: "bold",
+        textAlign: "center",
+        fontSize: 24,
+        width: "75%",
+        marginBottom: '1%'
     },
 
     fotosGeral: {
+        width: '100%%',
+        height: '25%',
         backgroundColor: '#d2d2d2',
         padding: '3%',
         display: 'flex',
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        top: '5%',
-        width: '85%',
 
+    },
+
+    textCategory:{
+        fontSize: 22,
+        fontWeight: "400",
+        textAlign: "center"
+    },
+
+    buttonCategoria:{
+        margin: 5
     },
 
     fotos: {
@@ -99,10 +124,13 @@ export default StyleSheet.create({
 
     locate: {
         backgroundColor: '#fff',
-        top: '10%',
-        width: '85%',
+        marginTop: '5%',
+        marginBottom: '5%',
+        width: '90%',
+        marginLeft: "auto",
+        marginRight: "auto",
+        height: "10%",
         padding: '2%',
-        paddingBottom: '5%',
         alignItems: 'center',
         borderRadius: 10,
         shadowColor: "#000",
@@ -129,9 +157,14 @@ export default StyleSheet.create({
     },
 
     btnSend: {
-        top: '15%',
+        width: "65%",
+        height: "5%",
+        marginTop: "10%",
+        marginLeft: "auto",
+        marginRight: "auto",
+        justifyContent: "center",
+        alignItems: "center",
         backgroundColor: '#F2BC1B',
-        padding: '5%',
         borderRadius: 20
     },
 

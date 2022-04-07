@@ -3,6 +3,14 @@ import { StyleSheet, Dimensions, Platform } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
+        ...Platform.select({
+            android:{
+                minHeight: Dimensions.get('window').height,
+            },
+            ios:{
+                height: Dimensions.get('window').height
+            }
+        }),
     },
     conteudo: {
         height: "75%",
@@ -77,8 +85,8 @@ export default StyleSheet.create({
         elevation: 20,
         ...Platform.select({
             android:{
-                borderTopEndRadius: Dimensions.get('window').width / 2.6,
-                borderTopStartRadius: Dimensions.get('window').width / 2.6
+                borderTopEndRadius: Dimensions.get('window').width / 2.3,
+                borderTopStartRadius: Dimensions.get('window').width / 2.3
             },
             ios:{
                 borderTopEndRadius: Dimensions.get('window').width / 1.8,
@@ -92,8 +100,8 @@ export default StyleSheet.create({
         backgroundColor: "#FFF",
         ...Platform.select({
             android:{
-                borderTopEndRadius: Dimensions.get('window').width / 2.6,
-                borderTopStartRadius: Dimensions.get('window').width / 2.6
+                borderTopEndRadius: Dimensions.get('window').width / 2.3,
+                borderTopStartRadius: Dimensions.get('window').width / 2.3
             },
             ios:{
                 borderTopEndRadius: Dimensions.get('window').width / 1.8,
@@ -105,7 +113,14 @@ export default StyleSheet.create({
         position: "absolute",
         bottom: "83%",
         left: "50%",
-        // transform: [{translateX: "-37.5%"}],                   tava dando alguns warnings
+        ...Platform.select({
+            android:{
+                transform: [{translateX: -Dimensions.get('window').width / 11}],                   
+            },
+            ios:{
+                transform: [{translateX: "-35.5%"}],                   
+            }
+        }),                                 
         width: 70,
         height: 70,
         display: "flex",
@@ -126,7 +141,14 @@ export default StyleSheet.create({
         position: "absolute",
         bottom: "12.5%",
         left: "25%",
-        // transform: [{translateX: "-106.5%"}],                        tava dando alguns warnings
+        ...Platform.select({
+            android:{
+                transform: [{translateX: -Dimensions.get('window').width / 4}],                   
+            },
+            ios:{
+                transform: [{translateX: "-106.5%"}],                   
+            }
+        }),
         width: "100%",
         height: "65%",
         borderRadius: Dimensions.get('window').width / 2,

@@ -21,9 +21,6 @@ import {
   Stack_IndividualPost
 } from './AppStackRoutes';
 
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 export default function App(){
@@ -32,7 +29,7 @@ export default function App(){
       <SafeAreaView edges={"top"} style={{flex: 1, backgroundColor: "#e3b014"}}>
         <ContextProvider>
           <NavigationContainer>
-            <Drawer.Navigator initialRouteName="Feed">
+            <Drawer.Navigator initialRouteName="NewPost">
               <Drawer.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
               <Drawer.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false, drawerItemStyle: { display: "none" }}} />
               <Drawer.Screen name="Registration2" component={Stack_Registration2} options={{headerShown: false, drawerItemStyle: { display: "none"}}} />

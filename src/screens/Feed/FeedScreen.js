@@ -15,15 +15,13 @@ export const FeedScreen = () =>{
     const[arrayValue, setarrayValue] = useState([])
 
     const verifyStatus = () =>{
-        if(status){
+        if(status === true){
             navigation.navigate("IndividualPost");
         }
         else{
             navigation.navigate("Login");
         }
     }
-
-    console.log(!status);
 
     const teste = [
         {

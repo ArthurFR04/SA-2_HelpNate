@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Platform } from 'react-native';
 import { Controller } from 'react-hook-form';
 
 const CustomInput = ({ control, name, rules = {}, placeholder, secureTextEntry}) => {
@@ -16,9 +16,9 @@ const CustomInput = ({ control, name, rules = {}, placeholder, secureTextEntry})
             onBlur={ onBlur }
             keyboardType={name === 'nascimento' || name === 'telefone' ? "numbers-and-punctuation" : "default"}
             placeholder={ placeholder }
-            style={[style.input,{ borderColor: error ? 'red' : 'transparent'}, name === 'biografia' ? {height: 150}: {height: 45}]}
+            style={[style.input,{ borderColor: error ? 'red' : 'transparent'}, name === 'biografia' || name === 'descricao' ? {height: 150}: {height: 45}]}
             secureTextEntry={ secureTextEntry }
-            multiline={name === 'biografia' ? true : false}
+            multiline={name === 'biografia' || name === 'descricao' ? true : false}
           />
           {error && (
             <Text style={{ width: "75%", marginLeft: "auto", marginRight: "auto", color: 'red', textAlign: "left", fontSize: 12 }}>{error.message || 'Error'}</Text>
@@ -33,7 +33,14 @@ const style = StyleSheet.create({
   input:{
     width: "85%",
     backgroundColor: "#E5E5E5",
-    textAlignVertical: "top",
+    ...Platform.select({
+      android: {
+        textAlignVertical: "center"
+      },
+      ios:{
+        textAlignVertical: "top",
+      }
+    }),
     borderRadius: 10,
     fontWeight: "bold",
     fontSize: 16,

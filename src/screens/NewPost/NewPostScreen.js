@@ -1,10 +1,14 @@
-import React from 'react'
-import { View, TextInput, Text, TouchableOpacity, Image, ScrollView, SafeAreaView} from "react-native";
+import React, { useState, Fragment, useContext } from 'react'
+import { View, TextInput, Text, TouchableOpacity, Image, Keyboard, ScrollView, SafeAreaView, TouchableWithoutFeedback, KeyboardAvoidingView } from "react-native";
 import styles from './NewPostStyle'
+import CustomInput from "../../components/customInput/customInput";
 import { Link } from '@react-navigation/native';
 import { FontAwesome } from '@expo/vector-icons';
+import { Context } from '../../components/context/Context';
+import { useForm, Controller } from "react-hook-form";
 import { AntDesign } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native'
 import * as ImagePicker from 'expo-image-picker';
 
 let img1 = null; let img2 = null; let img3 = null; let img4 = null; let img5 = null;
@@ -22,10 +26,10 @@ export const NewPostScreen = () => {
         if (pickerResult.cancelled === true) {
             return;
         }
-        setSelectedImage1({ localUri: pickerResult.uri });
+        setSelectedImage1(pickerResult);
     };
     if (selectedImage1 !== null) {
-        img1 = selectedImage1.localUri
+        img1 = selectedImage1.uri
     }
 
     const [selectedImage2, setSelectedImage2] = React.useState(null);
@@ -39,10 +43,10 @@ export const NewPostScreen = () => {
         if (pickerResult.cancelled === true) {
             return;
         }
-        setSelectedImage2({ localUri: pickerResult.uri });
+        setSelectedImage2(pickerResult);
     };
     if (selectedImage2 !== null) {
-        img2 = selectedImage2.localUri
+        img2 = selectedImage2.uri
     }
 
     const [selectedImage3, setSelectedImage3] = React.useState(null);
@@ -56,114 +60,108 @@ export const NewPostScreen = () => {
         if (pickerResult.cancelled === true) {
             return;
         }
-        setSelectedImage3({ localUri: pickerResult.uri });
+        setSelectedImage3(pickerResult);
     };
     if (selectedImage3 !== null) {
-        img3 = selectedImage3.localUri
+        img3 = selectedImage3.uri
     }
 
-    const [selectedImage4, setSelectedImage4] = React.useState(null);
-    let openImagePickerAsync4 = async () => {
-        let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
-        if (permissionResult.granted === false) {
-            alert('Permission to access camera roll is required!');
-            return;
-        }
-        let pickerResult = await ImagePicker.launchImageLibraryAsync();
-        if (pickerResult.cancelled === true) {
-            return;
-        }
-        setSelectedImage4({ localUri: pickerResult.uri });
-    };
-    if (selectedImage4 !== null) {
-        img4 = selectedImage4.localUri
-    }
+    const navigation = useNavigation()
+    const[categoria, setcategoria] = useState("")
+    const[arrayImages, setarrayimages] = useState([])
+    const { control, handleSubmit, formState: { errors }, watch } = useForm();
+    const { newPost } = useContext(Context)
 
-    const [selectedImage5, setSelectedImage5] = React.useState(null);
-    let openImagePickerAsync5 = async () => {
-        let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
-        if (permissionResult.granted === false) {
-            alert('Permission to access camera roll is required!');
-            return;
-        }
-        let pickerResult = await ImagePicker.launchImageLibraryAsync();
-        if (pickerResult.cancelled === true) {
-            return;
-        }
-        setSelectedImage5({ localUri: pickerResult.uri });
-    };
-    if (selectedImage5 !== null) {
-        img5 = selectedImage5.localUri
+    
+    const onSubmit = async(data) =>{
+        const arrayImagesEnvio = []
+        arrayImages.push(selectedImage1)
+        arrayImages.push(selectedImage2)
+        arrayImages.push(selectedImage3)
+        setarrayimages(arrayImagesEnvio)
+        await newPost(data, categoria, arrayImages)
+        navigation.navigate("Feed");
     }
-
 
     return (
-        <SafeAreaView>
-            <View className="Container" style={styles.container}>
+        <Fragment>
+            <ScrollView>
 
-                <View className="Basico" style={styles.topPage}>
-                    <TextInput placeholder='Titúlo' style={styles.tituloP} placeholderTextColor="#3c3c3c"></TextInput>
-                    <TextInput placeholder='Descrição...' style={styles.descrP} placeholderTextColor="#3c3c3c"></TextInput>
-                </View>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+                <KeyboardAvoidingView style={styles.container} keyboardVerticalOffset={40}>
 
-                <View className="Categoria" style={styles.categoria}>
-                    <Text style={styles.Text}>Selecione a categoria</Text>
-                    <TouchableOpacity>
+                    <View style={styles.topPage}>
+                        <CustomInput
+                            name="titulo"
+                            placeholder="Título"
+                            control={control}
+                            rules={{ required: "Título é obrigatório!" }}
+                        />
+                        <CustomInput
+                            name="descricao"
+                            placeholder="Descrição"
+                            control={control}
+                            rules={{ required: "Descrição é obrigatória!" }}
+                        />
+                    </View>
 
-                    </TouchableOpacity>
-                </View>
-
-                <View className="Fotos" style={styles.fotosGeral}>
-                    <Text style={styles.Text}>Selecione até 5 fotos</Text>
-                    <ScrollView>
-                        <View style={styles.fotos}>
-
-                            <View style={styles.quadrofoto}>
-                                <TouchableOpacity onPress={openImagePickerAsync1} style={styles.button}>
-                                    {img1 === null ? <Text style={styles.Text}>Pick a photo 1</Text> : <Image source={{ uri: img1 }} style={styles.thumbnail} />}
+                    <View style={styles.categoria}>
+                        <Text style={styles.titleCategory}>Categoria</Text>
+                        <View style={styles.categorias}>
+                            <View>
+                                <TouchableOpacity style={styles.buttonCategoria} onPress={() => setcategoria("roupas")}>
+                                    <Text style={[styles.textCategory, {color: categoria === 'roupas' ? "#f2bc1b" : "black"}]}>Roupas</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.buttonCategoria}  onPress={() => setcategoria("utensilios")}>
+                                    <Text style={[styles.textCategory, {color: categoria === 'utensilios' ? "#f2bc1b" : "black"}]}>Utensílios</Text>
                                 </TouchableOpacity>
                             </View>
-
-                            <View style={styles.quadrofoto}>
-                                <TouchableOpacity onPress={openImagePickerAsync2} style={styles.button}>
-                                    {img2 === null ? <Text style={styles.Text}>Pick a photo 2</Text> : <Image source={{ uri: img2 }} style={styles.thumbnail} />}
+                            <View>
+                                <TouchableOpacity style={styles.buttonCategoria} onPress={() => setcategoria("casa")}>
+                                    <Text style={[styles.textCategory, {color: categoria === 'casa' ? "#f2bc1b" : "black"}]}>Casa</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.buttonCategoria}  onPress={() => setcategoria("eletronicos")}>
+                                    <Text style={[styles.textCategory, {color: categoria === 'eletronicos' ? "#f2bc1b" : "black"}]}>Eletrônicos</Text>
                                 </TouchableOpacity>
                             </View>
-
-                            <View style={styles.quadrofoto}>
-                                <TouchableOpacity onPress={openImagePickerAsync3} style={styles.button}>
-                                    {img3 === null ? <Text style={styles.Text}>Pick a photo 3</Text> : <Image source={{ uri: img3 }} style={styles.thumbnail} />}
-                                </TouchableOpacity>
-                            </View>
-
-                            <View style={styles.quadrofoto}>
-                                <TouchableOpacity onPress={openImagePickerAsync4} style={styles.button}>
-                                    {img4 === null ? <Text style={styles.Text}>Pick a photo 4</Text> : <Image source={{ uri: img4 }} style={styles.thumbnail} />}
-                                </TouchableOpacity>
-                            </View>
-
-                            <View style={styles.quadrofoto}>
-                                <TouchableOpacity onPress={openImagePickerAsync5} style={styles.button}>
-                                    {img5 === null ? <Text style={styles.Text}>Pick a photo 5</Text> : <Image source={{ uri: img5 }} style={styles.thumbnail} />}
-                                </TouchableOpacity>
-                            </View>
-
                         </View>
-                    </ScrollView>
-                </View>
+                    </View>
 
-                <View className="Localizacao" style={styles.locate}>
-                    <Text style={styles.locateText}>Localização</Text>
-                    <TextInput placeholder='CEP' placeholderTextColor="#3c3c3c" style={styles.cep}></TextInput>
-                </View>
+                    <View style={styles.fotosGeral}>
+                        <Text style={styles.Text}>Selecione até 3 fotos</Text>
+                        <ScrollView horizontal>
+                            <View style={styles.fotos}>
+                                <View style={styles.quadrofoto}>
+                                    <TouchableOpacity onPress={openImagePickerAsync1} style={styles.button}>
+                                        {img1 === null ? <Text style={styles.Text}>Pick a photo 1</Text> : <Image source={{ uri: img1 }} style={styles.thumbnail} />}
+                                    </TouchableOpacity>
+                                </View>
 
-                <View className="EnviarBTN" style={styles.btnSend}>
-                    <TouchableOpacity>
-                        <Text style={styles.Text}>Enviar anúncio</Text>
-                    </TouchableOpacity>
-                </View>
+                                <View style={styles.quadrofoto}>
+                                    <TouchableOpacity onPress={openImagePickerAsync2} style={styles.button}>
+                                        {img2 === null ? <Text style={styles.Text}>Pick a photo 2</Text> : <Image source={{ uri: img2 }} style={styles.thumbnail} />}
+                                    </TouchableOpacity>
+                                </View>
 
-            </View>
-        </SafeAreaView>
+                                <View style={styles.quadrofoto}>
+                                    <TouchableOpacity onPress={openImagePickerAsync3} style={styles.button}>
+                                        {img3 === null ? <Text style={styles.Text}>Pick a photo 3</Text> : <Image source={{ uri: img3 }} style={styles.thumbnail} />}
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </ScrollView>
+                    </View>
+                    <View style={styles.btnSend}>
+                        <TouchableOpacity onPress={handleSubmit(onSubmit)}>
+                            <Text style={styles.Text}>Criar anúncio</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                </KeyboardAvoidingView>
+
+            </TouchableWithoutFeedback>
+            </ScrollView>
+
+        </Fragment >
     );
 }
