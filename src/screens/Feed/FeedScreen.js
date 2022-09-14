@@ -26,6 +26,7 @@ export const FeedScreen = () =>{
     const teste = [
         {
             nome: "Ismael Teixeira da Silva",
+            descricao: "Camiseta preta com pouco uso",
             fotoPerfil : <Image source={require("../../../assets/images/ismaelSilva.jpg")} style={style.userImage}></Image>,
             images:[
                 {src: <Image source={require("../../../assets/images/camisetaPreta.jpg")} style={style.imageCarousel}></Image>},
@@ -34,6 +35,7 @@ export const FeedScreen = () =>{
         },
         {
             nome: "Paulo Eduardo Battistella",
+            descricao: "Estou doando uma mesa de jantar, acabei comprando outra e não preciso mais!",
             fotoPerfil : <Image source={require("../../../assets/images/BATTISTELLA.jpg")} style={style.userImage}></Image>,
             images:[
                 {src: <Image source={require("../../../assets/images/mesaMarmore.png")} style={style.imageCarousel}></Image>},
@@ -42,7 +44,8 @@ export const FeedScreen = () =>{
         },
         {
             nome: "Arthur Rodrigues",
-            fotoPerfil : <Image source={require("../../../assets/images/ARTHUR.jpg")} style={style.userImage}></Image>,
+            descricao: "Doando PS 2 (com problemas)",
+            fotoPerfil : <Image source={require("../../../assets/images/ArthurR.jpeg")} style={style.userImage}></Image>,
             images:[
                 {src: <Image source={require("../../../assets/images/PS2.png")} style={style.imageCarousel}></Image>},
                 {src: <Image source={require("../../../assets/images/PS22.jpg")} style={style.imageCarousel}></Image>}
@@ -107,7 +110,7 @@ export const FeedScreen = () =>{
                         </TouchableOpacity>
                     </View>
                     <View style={style.optionsPost}>
-                        <Text style={style.postDescription}>Doa-se mesa de mármore(em bom estado)</Text>
+                        <Text style={style.postDescription}>{teste[index].descricao}</Text>
                         <TouchableOpacity style={style.postButton} onPress={verifyStatus}>
                             <Text style={style.textPostButton}>Eu quero!</Text>
                         </TouchableOpacity>

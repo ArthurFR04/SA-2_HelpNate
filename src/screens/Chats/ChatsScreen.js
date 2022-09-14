@@ -2,12 +2,16 @@ import React from 'react';
 import {View, Text, Image, TextInput, TouchableOpacity, ScrollView} from 'react-native';
 import style from './ChatsStyle'; 
 import { Link } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 export const AllChatsScreen = () =>{
+
+    const navigation = useNavigation();
+
     return(
         <View style={style.container}>
             <ScrollView style={style.scrollview}>
-            <TouchableOpacity style={style.chatT}>
+            <TouchableOpacity style={style.chatT} onPress={() => navigation.navigate('IndividualChat')}>
                 <View style={style.imgChatView}>
                     <Image source={require("../../../assets/images/ismaelSilva.jpg")} style={style.imgChat}></Image>
                 </View>
@@ -17,7 +21,7 @@ export const AllChatsScreen = () =>{
                     <Text style={style.status}>Hoje</Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity style={style.chatT}>
+            <TouchableOpacity style={style.chatT} onPress={() => navigation.navigate('IndividualChat')}>
                 <View style={style.imgChatView}>
                     <Image source={require("../../../assets/images/ismaelSilva.jpg")} style={style.imgChat}></Image>
                 </View>
@@ -27,7 +31,7 @@ export const AllChatsScreen = () =>{
                     <Text style={style.status}>Hoje</Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity style={style.chatT}>
+            <TouchableOpacity style={style.chatT} onPress={() => navigation.navigate('IndividualChat')}>
                 <View style={style.imgChatView}>
                     <Image source={require("../../../assets/images/ismaelSilva.jpg")} style={style.imgChat}></Image>
                 </View>
@@ -37,7 +41,7 @@ export const AllChatsScreen = () =>{
                     <Text style={style.status}>Hoje</Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity style={style.chatT}>
+            <TouchableOpacity style={style.chatT} onPress={() => navigation.navigate('IndividualChat')}>
                 <View style={style.imgChatView}>
                     <Image source={require("../../../assets/images/ismaelSilva.jpg")} style={style.imgChat}></Image>
                 </View>
@@ -47,7 +51,7 @@ export const AllChatsScreen = () =>{
                     <Text style={style.status}>Hoje</Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity style={style.chatT}>
+            <TouchableOpacity style={style.chatT} onPress={() => navigation.navigate('IndividualChat')}>
                 <View style={style.imgChatView}>
                     <Image source={require("../../../assets/images/ismaelSilva.jpg")} style={style.imgChat}></Image>
                 </View>

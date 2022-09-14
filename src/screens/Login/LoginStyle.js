@@ -112,7 +112,6 @@ export default StyleSheet.create({
     arrow:{
         position: "absolute",
         bottom: "83%",
-
         left: "50%",
         ...Platform.select({
             android:{
@@ -147,7 +146,7 @@ export default StyleSheet.create({
                 transform: [{translateX: -Dimensions.get('window').width / 4}],                   
             },
             ios:{
-                transform: [{translateX: "-106.5%"}],                   
+                transform: [{translateX: "-95.5%"}],                   
             }
         }),
         width: "100%",
@@ -160,19 +159,12 @@ export default StyleSheet.create({
 
     imageLogo:{
         flex: 1,
-        resizeMode: 'contain',
-        marginRight: "50%",
-        marginTop: "10%",
-        width: "100%",
-        height: "100%",
+        resizeMode: 'contain'
     },
 
     textRegistration:{
         fontSize: 14,
-        marginBottom: "2%",
-        position: "absolute",
-        right: "45%",
-        bottom: "80%",
+        marginBottom: "2%"
     }
 
 });
